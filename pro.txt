@@ -1,0 +1,33 @@
+Customers
+	buy product (cart),
+	track buy,
+	update profile
+	product review
+	vendor review
+
+	buy product (cart),//sajeda 
+	track buy, // shamrat
+	profile //Tanvir
+	product review //sajeda
+	vendor review //sajeda
+	
+Vendor
+	upload product
+	track sell
+	Profile
+	upload product // sajeda
+	track sell // shamrat
+	Profile //tanvir
+	
+	
+	
+
+Admin
+Admin // sabuj
+	Approve users (customer and vendor)
+	Add product category
+	approve vendors uploaded products
+	track sells and transfer them to vendors profile
+	manage products
+	track sells and transfer them to vendors profile // tanim
+	manage products 
