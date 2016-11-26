@@ -295,57 +295,156 @@
                                         </div>
 
                                         <div class="panel-options">
-                                            <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
                                             <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
-                                            <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
-                                            <a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
                                         </div>
                                     </div>
 
                                     <div class="panel-body no-padding">
                                         <div id="rickshaw-chart-demo" style="padding: 5px;">
                                             <div id="rickshaw-legend">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label for="field-1" class="col-sm-4 control-label" style="text-align: left">Regular Price (৳)</label>
+                                                <div class="row" style="background-color: #fff; padding: 5px">
 
-                                                        <div class="col-sm-6">
-                                                            <input type="text" class="form-control" id="field-1">
+                                                    <div class="col-md-12">
+
+                                                        <div class="tabs-vertical-env">
+
+                                                            <ul class="nav tabs-vertical"><!-- available classes "right-aligned" -->
+                                                                <li class="active"><a href="#v-home" data-toggle="tab">General</a></li>
+                                                                <li><a href="#v-profile" data-toggle="tab">Variation</a></li>
+                                                            </ul>
+
+                                                            <div class="tab-content">
+                                                                <div class="tab-pane active" id="v-home">
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group">
+                                                                            <label for="field-1" class="col-sm-6 control-label" style="text-align: left">Regular Price (৳)</label>
+
+                                                                            <div class="col-sm-6">
+                                                                                <input type="text" class="form-control" id="field-1">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="field-1" class="col-sm-6 control-label" style="text-align: left">Discount Price (৳)</label>
+
+                                                                            <div class="col-sm-6">
+                                                                                <input type="text" class="form-control" id="field-1">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="field-1" class="col-sm-6 control-label" style="text-align: left">Product Code</label>
+
+                                                                            <div class="col-sm-6">
+                                                                                <input type="text" class="form-control" id="field-1">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group">
+                                                                            <label for="field-1" class="col-sm-6 control-label" style="text-align: left">Stock Quantity</label>
+
+                                                                            <div class="col-sm-6">
+                                                                                <input type="text" class="form-control" id="field-1">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="col-sm-6 control-label" style="text-align: left">product Type</label>
+                                                                            <div class="col-sm-6">
+                                                                                <select name="test" class="" data-first-option="false">
+                                                                                    <option value="Physical">Physical</option>
+                                                                                    <option value="Digital">Digital</option>
+                                                                                </select>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tab-pane" id="v-profile">
+                                                                    <!--start of product variation-->
+                                                                    <div class="row">
+                                                                        <div class="row">
+                                                                            <div class="col-sm-12">
+                                                                                <div class="panel panel-primary">
+                                                                                    <div class="panel-body no-padding">
+                                                                                        <div id="rickshaw-chart-demo" style="padding: 5px;">
+                                                                                            <div id="rickshaw-legend">
+                                                                                                <div class="form-group">
+                                                                                                    <label class="col-sm-3 control-label" style="text-align: left">Color: </label>
+
+                                                                                                    <div class="col-sm-8">
+
+                                                                                                        <select name="test" class="select2" multiple>
+                                                                                                            <option value="3" >Blue</option>
+                                                                                                            <option value="2" >Red</option>
+                                                                                                            <option value="5" >Black</option>
+                                                                                                            <option value="5" >White</option>
+                                                                                                            <option value="1" >Green</option>
+                                                                                                            <option value="4" >Yellow</option>
+                                                                                                        </select>
+
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div class="form-group">
+                                                                                                    <label for="field-1" class="col-sm-3 control-label" style="text-align: left">Size: </label>
+
+                                                                                                    <div class="col-sm-8">
+
+                                                                                                        <select name="test" class="select2" multiple>
+                                                                                                            <option value="3" >S</option>
+                                                                                                            <option value="3" >M</option>
+                                                                                                            <option value="3" >L</option>
+                                                                                                            <option value="2" >XL</option>
+                                                                                                            <option value="5" >XXL</option>
+                                                                                                            <option value="1" >XXXL</option>
+                                                                                                        </select>
+
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div class="form-group">
+                                                                                                    <label for="field-1" class="col-sm-3 control-label" style="text-align: left">Weight(g): </label>
+
+                                                                                                    <div class="col-sm-8">
+                                                                                                        <input type="text" class="form-control" id="field-1">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="form-group">
+                                                                                                    <label for="field-1" class="col-sm-3 control-label" style="text-align: left">Category: </label>
+
+                                                                                                    <div class="col-sm-8">
+
+                                                                                                        <select name="test" class="select2" multiple>
+                                                                                                            <option value="3" >Electronics</option>
+                                                                                                            <option value="3" >Fashion</option>
+                                                                                                            <option value="3" >Cosmetics</option>
+                                                                                                            <option value="2" >Education</option>
+                                                                                                            <option value="5" >Gift</option>
+                                                                                                        </select>
+
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--end of product variation-->
+                                                                </div>
+                                                                <div class="tab-pane" id="v-messages">
+                                                                    <p>When be draw drew ye. Defective in do recommend suffering. House it seven in spoil tiled court. Sister others marked fat missed did out use. Alteration possession dispatched collecting instrument travelling he or on. Snug give made at spot or late that mr. </p>
+                                                                </div>
+                                                                <div class="tab-pane" id="v-settings">
+                                                                    <p>Luckily friends do ashamed to do suppose. Tried meant mr smile so. Exquisite behaviour as to middleton perfectly. Chicken no wishing waiting am. Say concerns dwelling graceful six humoured. Whether mr up savings talking an. Active mutual nor father mother exeter change six did all. </p>
+                                                                </div>
+                                                            </div>
+
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="field-1" class="col-sm-4 control-label" style="text-align: left">Discount Price (৳)</label>
-
-                                                        <div class="col-sm-6">
-                                                            <input type="text" class="form-control" id="field-1">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="field-1" class="col-sm-4 control-label" style="text-align: left">Product Code</label>
-
-                                                        <div class="col-sm-6">
-                                                            <input type="text" class="form-control" id="field-1">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="field-1" class="col-sm-4 control-label" style="text-align: left">Stock Quantity</label>
-
-                                                    <div class="col-sm-6">
-                                                        <input type="text" class="form-control" id="field-1">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-4 control-label" style="text-align: left">product Type</label>
-                                                    <div class="col-sm-6">
-                                                        <select name="test" class="" data-first-option="false">
-                                                            <option value="Physical">Physical</option>
-                                                            <option value="Digital">Digital</option>
-                                                        </select>
 
                                                     </div>
-                                                </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -355,11 +454,155 @@
                             </div>
                         </div>
                     </div>
+
+                    <!--product option section-->
+
+
+
                 </div>
 
+                <!--create product sidebar start here-->
                 <div class="col-sm-3">
-                    sfdfsfsfsf
+
+                    <!--Product featured image start here-->
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">
+                                            <h3>
+                                                Publish
+                                            </h3>
+                                        </div>
+
+                                        <div class="panel-options">
+                                            <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel-body no-padding">
+                                        <div id="rickshaw-chart-demo" style="padding: 5px;">
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Status</label>
+
+                                                <div class="col-sm-7">
+
+                                                    <select name="test" class="selectboxit" data-first-option="false">
+                                                        <option>Select one</option>
+                                                        <option value="1">Draft</option>
+                                                        <option value="2">Publish</option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+
+                                            <div id="rickshaw-legend" style="text-align: right;padding: 5px">
+                                                <button type="button" class="btn btn-success">Publish</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--Product featured end here-->
+
+                    <!--Product image start here-->
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">
+                                            <h3>
+                                                Featured Image
+                                            </h3>
+                                        </div>
+
+                                        <div class="panel-options">
+                                            <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel-body no-padding">
+                                        <div id="rickshaw-chart-demo" style="padding: 5px;">
+                                            <div id="rickshaw-legend">
+
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+
+                                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;" data-trigger="fileinput">
+                                                                <img src="http://placehold.it/200x150" alt="...">
+                                                            </div>
+                                                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px"></div>
+                                                            <div>
+                                                                <span class="btn btn-white btn-file">
+                                                                    <span class="fileinput-new">Select image</span>
+                                                                    <span class="fileinput-exists">Change</span>
+                                                                    <input type="file" name="..." accept="image/*">
+                                                                </span>
+                                                                <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--Product image end here-->
+
+                    <!--Product featured image start here-->
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">
+                                            <h3>
+                                                Gallery
+                                            </h3>
+                                        </div>
+
+                                        <div class="panel-options">
+                                            <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel-body no-padding">
+                                        <div id="rickshaw-chart-demo" style="padding: 5px;">
+                                            <div id="rickshaw-legend">
+
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <div class="col-sm-8">
+
+                                                            <input type="file" class="form-control file2 inline btn btn-primary" multiple="1" data-label="<i class='glyphicon glyphicon-circle-arrow-up'></i> &nbsp;Browse Files" />
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--Product featured end here-->
                 </div>
+                <!--end of create product sidebar-->
+
             </div>
 
         </form>
@@ -369,74 +612,16 @@
 </div>
 
 
-<!-- Modal 1 (add new from index.php)-->
-<div class="modal fade" id="modal-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <div class="well well-sm">
-                    <h4>Please enter your book details.</h4>
-                </div>
-            </div>
-
-            <div class="modal-body">
-                <form id="rootwizard-2" method="post" action="storeindex.php" class="form-wizard validate">
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="tab2-1">
-
-                            <div class="row">
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label" for="full_name">Book Name</label>
-                                        <input class="form-control" name="book_name" id="book_name" data-validate="required" placeholder="Book Name" />
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label" for="birthdate">Author Name</label>
-                                        <input class="form-control" name="author_name" id="author_name" data-validate="required" placeholder="Author Name" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label" for="address_line_2">Book Category</label>
-                                        <input class="form-control" name="category" id="book_category" data-validate="required" placeholder="Category" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label" for="address_line_2">Price (TK)</label>
-                                        <input class="form-control" name="price" id="book_price" data-validate="required" placeholder="Enter book price here" />
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-success"><i class="fa fa-bookmark"></i> Save </button>
-                            <a type="" class="btn btn-info"><i class="fa fa-clock-o" aria-hidden="true"></i> Reset </a>
-                            <button type="button" class="btn btn-orange pull-right" data-dismiss="modal"><i class="fa fa-arrow-down"></i> Close </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- Imported styles on this page -->
+<link rel="stylesheet" href="../../assets/js/dropzone/dropzone.css">
 <link rel="stylesheet" href="../../assets/js/datatables/datatables.css">
 <link rel="stylesheet" href="../../assets/js/select2/select2-bootstrap.css">
 <link rel="stylesheet" href="../../assets/js/select2/select2.css">
 <link rel="stylesheet" href="../../assets/js/selectboxit/jquery.selectBoxIt.css">
 
 <!-- Bottom scripts (common) -->
+<script src="../../assets/js/fileinput.js"></script>
+<script src="../../assets/js/dropzone/dropzone.js"></script>
 <script src="../../assets/js/gsap/TweenMax.min.js"></script>
 <script src="../../assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
 <script src="../../assets/js/bootstrap.js"></script>
