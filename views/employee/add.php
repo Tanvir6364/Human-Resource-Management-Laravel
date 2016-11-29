@@ -8,8 +8,10 @@ use App\Utility\Utility;
 $objEmployee = new Employee();
 $allData = $objEmployee->index();
 $allData1 = $objEmployee->salarysheet();
+$allData1 = $objEmployee->department();
 $recordSet = $objEmployee->index("OBJ");
 $recordSet1 = $objEmployee->salarysheet("OBJ");
+$recordSet1 = $objEmployee->department("OBJ");
 
 ?>
 
@@ -1093,7 +1095,7 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                     <select name="salary" class="selectboxit" data-first-option="false">
                                         <option>Select one</option>
                                         <?php foreach($allData1 as $data) {?>
-                                        <option value="<?php  echo $data['amount']?>"><?php echo $data['title']?></option>
+                                        <option value="<?php  echo $data['salary']?>"><?php echo $data['name']?></option>
                                         <?php }?>
                                     </select>
                                 </div>
@@ -1104,9 +1106,9 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                             <div class="col-sm-8">
                                 <select name="dept" class="selectboxit" data-first-option="false">
                                     <option>Select one</option>
-                                    <option value="Administration">Administration</option>
-                                    <option value="Sales">Sales</option>
-                                    <option value="Marketing">Marketing</option>
+                                    <?php foreach($allData1 as $data) {?>
+                                        <option value="<?php echo $data['dept']?>"><?php echo $data['dept']?></option>
+                                    <?php }?>
                                 </select>
                             </div>
                         </div>
@@ -1143,7 +1145,6 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                     </div>
                 </div>
             </div>
-
             <!---login information ends here-->
     
             <!--social information starts hee-->

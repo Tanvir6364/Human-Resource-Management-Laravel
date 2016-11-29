@@ -6,6 +6,7 @@ use App\Message\Message;
 use App\Utility\Utility;
 $obj = new Employee();
 $count=$obj->countEmployee();
+$count1=$obj->countDept();
 
 //echo($count);die();
 
@@ -128,6 +129,25 @@ $count=$obj->countEmployee();
 				<li class="has-sub">
 					<a href="index.php">
 						<i class="entypo-gauge"></i>
+						<span class="title">Salary</span>
+					</a>
+					<ul>
+						<li>
+							<a href="views/salary/salarysheet.php">
+								<span class="title">View Grade</span>
+							</a>
+						</li>
+						<li>
+							<a href="dashboard-2.html">
+								<span class="title">Add New</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<li class="has-sub">
+					<a href="index.php">
+						<i class="entypo-gauge"></i>
 						<span class="title"> Resume </span>
 					</a>
 					<ul>
@@ -208,7 +228,7 @@ $count=$obj->countEmployee();
 				<div class="tile-stats tile-red">
 					<div class="icon"><i class="entypo-users"></i></div>
 
-					<div class="num"  ><?php echo $count->count?></div>
+					<div class="num" data-start="0" data-end="<?php echo $count->count?>" data-postfix="" data-duration="1500" data-delay="600">0</div>
 
 					<h3>Total Employee</h3>
 					<p>Click to Manage Employee</p>
@@ -220,7 +240,7 @@ $count=$obj->countEmployee();
 		
 				<div class="tile-stats tile-green">
 					<div class="icon"><i class="entypo-chart-bar"></i></div>
-					<div class="num" data-start="0" data-end="05" data-postfix="" data-duration="1500" data-delay="600">0</div>
+					<div class="num" data-start="0" data-end="<?php echo $count1->count?>" data-postfix="" data-duration="1500" data-delay="600">0</div>
 		
 					<h3>Total Department</h3>
 					<p>Click to Manage Department</p>

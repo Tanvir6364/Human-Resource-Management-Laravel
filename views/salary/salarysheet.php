@@ -880,11 +880,11 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                 <label for="field-1" class="col-sm-4 control-label">Title</label>
 
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="field-1" name="title" value=" <?php echo $data['title']?>">
+                                    <input type="text" class="form-control" id="field-1" name="title" value=" <?php echo $data['name']?>">
                                 </div>
                             </div>
                             <div class="form-group col-sm-6">
-                                <label for="field-1" class="col-sm-4 control-label"> Ammount</label>
+                                <label for="field-1" class="col-sm-4 control-label"> Amount</label>
 
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" id="field-1" name="ammount" value="<?php  echo $data['salary']?>">

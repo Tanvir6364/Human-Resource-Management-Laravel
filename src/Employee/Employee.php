@@ -214,19 +214,33 @@ class Employee extends DB
     }
 
 
-public function salarysheet($fetchMode="ASSOC"){
+    public function salarysheet($fetchMode="ASSOC"){
 
-    $STH = $this->connection->query('SELECT * from salary_sheet');
+        $STH = $this->connection->query('SELECT * from salary_sheet');
 
 
-    $fetchMode = strtoupper($fetchMode);
-    if(substr_count($fetchMode, "OBJ")>0)   $STH->setFetchMode(PDO::FETCH_OBJ);
-    else               $STH->setFetchMode(PDO::FETCH_ASSOC);
+        $fetchMode = strtoupper($fetchMode);
+        if(substr_count($fetchMode, "OBJ")>0)   $STH->setFetchMode(PDO::FETCH_OBJ);
+        else               $STH->setFetchMode(PDO::FETCH_ASSOC);
 
-    $arrAllData  = $STH->fetchAll();
-    return $arrAllData;
+        $arrAllData  = $STH->fetchAll();
+        return $arrAllData;
 
-}
+    }
+
+    public function department($fetchMode="ASSOC"){
+
+        $STH = $this->connection->query('SELECT * from department');
+
+
+        $fetchMode = strtoupper($fetchMode);
+        if(substr_count($fetchMode, "OBJ")>0)   $STH->setFetchMode(PDO::FETCH_OBJ);
+        else               $STH->setFetchMode(PDO::FETCH_ASSOC);
+
+        $arrAllData  = $STH->fetchAll();
+        return $arrAllData;
+
+    }
 
     public function view($fetchMode="ASSOC"){
         // $fetchMode = strtoupper($fetchMode);
@@ -366,6 +380,18 @@ public function salarysheet($fetchMode="ASSOC"){
 
         $arrOneData  = $STH->fetch();
        // var_dump($arrOneData);die();
+        return $arrOneData;
+    }
+
+    public function countDept(){
+
+        $sql="SELECT count(`id`) as count FROM `department` ";
+        $STH=$this->connection->query($sql);
+        $STH->setFetchMode(PDO::FETCH_OBJ);
+
+
+        $arrOneData  = $STH->fetch();
+        // var_dump($arrOneData);die();
         return $arrOneData;
     }
 }
