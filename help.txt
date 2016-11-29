@@ -1,0 +1,26 @@
+id
+name
+gender
+date of birth
+nid
+marital status
+
+
+
+id
+join date
+role
+status
+salary
+department
+
+
+
+address line 1
+zip
+city
+country
+
+phone number
+email
+

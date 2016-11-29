@@ -33,7 +33,7 @@
 
 
 </head>
-<body class="page-body  page-fade" data-url="http://neon.dev">
+<body class="page-body  page-fade">
 
 <div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
 	
@@ -72,7 +72,7 @@
 				<li class="active opened active has-sub">
 					<a href="index.php">
 						<i class="entypo-gauge"></i>
-						<span class="title">Dashboard</span>
+						<span class="title">Admin</span>
 					</a>
 					<ul class="visible">
 						<li class="active">
@@ -92,17 +92,17 @@
 				<li class="has-sub">
 					<a href="index.php">
 						<i class="entypo-gauge"></i>
-						<span class="title">Products</span>
+						<span class="title">Employees</span>
 					</a>
 					<ul>
 						<li>
 							<a href="index.php">
-								<span class="title">View Products</span>
+								<span class="title">View list</span>
 							</a>
 						</li>
 						<li>
 							<a href="dashboard-2.html">
-								<span class="title">Add Products</span>
+								<span class="title">Add New</span>
 							</a>
 						</li>
 						<li>
@@ -117,7 +117,7 @@
 				<li class="has-sub">
 					<a href="index.php">
 						<i class="entypo-gauge"></i>
-						<span class="title">Orders</span>
+						<span class="title">Reports</span>
 					</a>
 					<ul>
 						<li>
@@ -142,7 +142,7 @@
 				<li class="has-sub">
 					<a href="index.php">
 						<i class="entypo-gauge"></i>
-						<span class="title">Users</span>
+						<span class="title">System</span>
 					</a>
 					<ul>
 						<li>
@@ -163,6 +163,82 @@
 
 					</ul>
 				</li>
+
+				<li class="has-sub">
+					<a href="index.php">
+						<i class="entypo-gauge"></i>
+						<span class="title"> Payment </span>
+					</a>
+					<ul>
+						<li>
+							<a href="index.php">
+								<span class="title">Admins</span>
+							</a>
+						</li>
+						<li>
+							<a href="dashboard-2.html">
+								<span class="title">Vendors</span>
+							</a>
+						</li>
+						<li>
+							<a href="dashboard-2.html">
+								<span class="title">Customers</span>
+							</a>
+						</li>
+
+					</ul>
+				</li>
+
+				<li class="has-sub">
+					<a href="index.php">
+						<i class="entypo-gauge"></i>
+						<span class="title"> Resume </span>
+					</a>
+					<ul>
+						<li>
+							<a href="index.php">
+								<span class="title">Admins</span>
+							</a>
+						</li>
+						<li>
+							<a href="dashboard-2.html">
+								<span class="title">Vendors</span>
+							</a>
+						</li>
+						<li>
+							<a href="dashboard-2.html">
+								<span class="title">Customers</span>
+							</a>
+						</li>
+
+					</ul>
+				</li>
+
+				<li class="has-sub">
+					<a href="index.php">
+						<i class="entypo-gauge"></i>
+						<span class="title"> Finance </span>
+					</a>
+					<ul>
+						<li>
+							<a href="index.php">
+								<span class="title">Admins</span>
+							</a>
+						</li>
+						<li>
+							<a href="dashboard-2.html">
+								<span class="title">Vendors</span>
+							</a>
+						</li>
+						<li>
+							<a href="dashboard-2.html">
+								<span class="title">Customers</span>
+							</a>
+						</li>
+
+					</ul>
+				</li>
+
 			</ul>
 			
 		</div>
@@ -219,8 +295,8 @@
 
 					<div class="num" data-start="0" data-end="83" data-postfix="" data-duration="1500" data-delay="0"></div>
 
-					<h3>Vendor Requests</h3>
-					<p>Click to review vendor requests</p>
+					<h3>Total Employee</h3>
+					<p>Click to Manage Employee</p>
 				</div>
 		
 			</div>
@@ -231,8 +307,8 @@
 					<div class="icon"><i class="entypo-chart-bar"></i></div>
 					<div class="num" data-start="0" data-end="135" data-postfix="" data-duration="1500" data-delay="600">0</div>
 		
-					<h3>New Products</h3>
-					<p>Click to review new products</p>
+					<h3>Total Department</h3>
+					<p>Click to Manage Department</p>
 				</div>
 		
 			</div>
@@ -245,8 +321,8 @@
 					<div class="icon"><i class="entypo-basket"></i></div>
 					<div class="num" data-start="0" data-end="23" data-postfix="" data-duration="1500" data-delay="1200">0</div>
 		
-					<h3>Pending Orders</h3>
-					<p>Review and transfer to vendor</p>
+					<h3>Total Off Day</h3>
+					<p>Total off days of this month</p>
 				</div>
 		
 			</div>
@@ -257,10 +333,57 @@
 					<div class="icon"><i class="entypo-briefcase"></i></div>
 					<div class="num" data-start="0" data-end="52" data-postfix="" data-duration="1500" data-delay="1800">0</div>
 		
-					<h3>Total Sales</h3>
-					<p>On our site right now.</p>
+					<h3>Total Products</h3>
+					<p>Click to manage Products</p>
 				</div>
-		
+			</div>
+
+			<div class="col-sm-3 col-xs-6">
+
+				<div class="tile-stats tile-blue">
+					<div class="icon"><i class="entypo-briefcase"></i></div>
+					<div class="num" data-delay="1800" style="font-size: 35px;">Off days</div>
+
+					<h3>50</h3>
+					<p>Total off days of this month</p>
+				</div>
+
+			</div>
+
+			<div class="col-sm-3 col-xs-6">
+
+				<div class="tile-stats tile-blue">
+					<div class="icon"><i class="entypo-briefcase"></i></div>
+					<div class="num" data-delay="1800" style="font-size: 35px;">Absent Days</div>
+
+					<h3>50</h3>
+					<p>Total Absent days of this month</p>
+				</div>
+
+			</div>
+
+			<div class="col-sm-3 col-xs-6">
+
+				<div class="tile-stats tile-blue">
+					<div class="icon"><i class="entypo-briefcase"></i></div>
+					<div class="num" data-delay="1800" style="font-size: 35px;">Leave Days</div>
+
+					<h3>50</h3>
+					<p>Total leave days of this month</p>
+				</div>
+
+			</div>
+
+			<div class="col-sm-3 col-xs-6">
+
+				<div class="tile-stats tile-blue">
+					<div class="icon"><i class="entypo-briefcase"></i></div>
+					<div class="num" data-delay="1800">Settings</div>
+
+					<h3>Active</h3>
+					<p>Click to Manage</p>
+				</div>
+
 			</div>
 		</div>
 
