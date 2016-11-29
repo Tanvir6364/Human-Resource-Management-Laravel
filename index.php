@@ -1,3 +1,19 @@
+<?php
+
+include('vendor/autoload.php');
+use App\Employee\Employee;
+use App\Message\Message;
+use App\Utility\Utility;
+$obj = new Employee();
+$count=$obj->countEmployee();
+
+//echo($count);die();
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,25 +85,6 @@
 			
 									
 			<ul id="main-menu" class="main-menu">
-				<li class="active opened active has-sub">
-					<a href="index.php">
-						<i class="entypo-gauge"></i>
-						<span class="title">Admin</span>
-					</a>
-					<ul class="visible">
-						<li class="active">
-							<a href="index.php">
-								<span class="title">Dashboard 1</span>
-							</a>
-						</li>
-						<li>
-							<a href="dashboard-2.html">
-								<span class="title">Dashboard 2</span>
-							</a>
-						</li>
-
-					</ul>
-				</li>
 
 				<li class="has-sub">
 					<a href="index.php">
@@ -96,8 +93,28 @@
 					</a>
 					<ul>
 						<li>
-							<a href="index.php">
+							<a href="views/employee">
 								<span class="title">View list</span>
+							</a>
+						</li>
+						<li>
+							<a href="views/employee/add.php">
+								<span class="title">Add New</span>
+							</a>
+						</li>
+						<li>
+					</ul>
+				</li>
+
+				<li class="has-sub">
+					<a href="index.php">
+						<i class="entypo-gauge"></i>
+						<span class="title">Job Opening</span>
+					</a>
+					<ul>
+						<li>
+							<a href="index.php">
+								<span class="title">View All</span>
 							</a>
 						</li>
 						<li>
@@ -105,87 +122,6 @@
 								<span class="title">Add New</span>
 							</a>
 						</li>
-						<li>
-							<a href="dashboard-2.html">
-								<span class="title">Categories</span>
-							</a>
-						</li>
-
-					</ul>
-				</li>
-
-				<li class="has-sub">
-					<a href="index.php">
-						<i class="entypo-gauge"></i>
-						<span class="title">Reports</span>
-					</a>
-					<ul>
-						<li>
-							<a href="index.php">
-								<span class="title">New Orders</span>
-							</a>
-						</li>
-						<li>
-							<a href="dashboard-2.html">
-								<span class="title">On Hold</span>
-							</a>
-						</li>
-						<li>
-							<a href="dashboard-2.html">
-								<span class="title">Categories</span>
-							</a>
-						</li>
-
-					</ul>
-				</li>
-
-				<li class="has-sub">
-					<a href="index.php">
-						<i class="entypo-gauge"></i>
-						<span class="title">System</span>
-					</a>
-					<ul>
-						<li>
-							<a href="index.php">
-								<span class="title">Admins</span>
-							</a>
-						</li>
-						<li>
-							<a href="dashboard-2.html">
-								<span class="title">Vendors</span>
-							</a>
-						</li>
-						<li>
-							<a href="dashboard-2.html">
-								<span class="title">Customers</span>
-							</a>
-						</li>
-
-					</ul>
-				</li>
-
-				<li class="has-sub">
-					<a href="index.php">
-						<i class="entypo-gauge"></i>
-						<span class="title"> Payment </span>
-					</a>
-					<ul>
-						<li>
-							<a href="index.php">
-								<span class="title">Admins</span>
-							</a>
-						</li>
-						<li>
-							<a href="dashboard-2.html">
-								<span class="title">Vendors</span>
-							</a>
-						</li>
-						<li>
-							<a href="dashboard-2.html">
-								<span class="title">Customers</span>
-							</a>
-						</li>
-
 					</ul>
 				</li>
 
@@ -197,17 +133,7 @@
 					<ul>
 						<li>
 							<a href="index.php">
-								<span class="title">Admins</span>
-							</a>
-						</li>
-						<li>
-							<a href="dashboard-2.html">
-								<span class="title">Vendors</span>
-							</a>
-						</li>
-						<li>
-							<a href="dashboard-2.html">
-								<span class="title">Customers</span>
+								<span class="title">View All</span>
 							</a>
 						</li>
 
@@ -217,28 +143,17 @@
 				<li class="has-sub">
 					<a href="index.php">
 						<i class="entypo-gauge"></i>
-						<span class="title"> Finance </span>
+						<span class="title"> Job Seekers </span>
 					</a>
 					<ul>
 						<li>
 							<a href="index.php">
-								<span class="title">Admins</span>
-							</a>
-						</li>
-						<li>
-							<a href="dashboard-2.html">
-								<span class="title">Vendors</span>
-							</a>
-						</li>
-						<li>
-							<a href="dashboard-2.html">
-								<span class="title">Customers</span>
+								<span class="title">View All</span>
 							</a>
 						</li>
 
 					</ul>
 				</li>
-
 			</ul>
 			
 		</div>
@@ -293,7 +208,7 @@
 				<div class="tile-stats tile-red">
 					<div class="icon"><i class="entypo-users"></i></div>
 
-					<div class="num" data-start="0" data-end="83" data-postfix="" data-duration="1500" data-delay="0"></div>
+					<div class="num"  ><?php echo $count->count?></div>
 
 					<h3>Total Employee</h3>
 					<p>Click to Manage Employee</p>
@@ -305,7 +220,7 @@
 		
 				<div class="tile-stats tile-green">
 					<div class="icon"><i class="entypo-chart-bar"></i></div>
-					<div class="num" data-start="0" data-end="135" data-postfix="" data-duration="1500" data-delay="600">0</div>
+					<div class="num" data-start="0" data-end="05" data-postfix="" data-duration="1500" data-delay="600">0</div>
 		
 					<h3>Total Department</h3>
 					<p>Click to Manage Department</p>

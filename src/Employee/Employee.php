@@ -355,4 +355,17 @@ public function salarysheet($fetchMode="ASSOC"){
 
         Utility::redirect('TrashList.php');
     }
+
+
+    public function countEmployee(){
+
+        $sql="SELECT count(`id`) as count FROM `employee` ";
+      $STH=$this->connection->query($sql);
+        $STH->setFetchMode(PDO::FETCH_OBJ);
+      
+
+        $arrOneData  = $STH->fetch();
+       // var_dump($arrOneData);die();
+        return $arrOneData;
+    }
 }
