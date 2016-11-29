@@ -1115,6 +1115,36 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
             </div>
     
             <!---Job information ends here-->
+
+            <!--login information starts hee-->
+            <div class="col-md-12">
+                <div class="panel panel-gradient" data-collapsed="0">
+
+                    <!-- panel head -->
+                    <div class="panel-heading">
+                        <div class="panel-title"><h2>Login Information</h2></div>
+
+                        <div class="panel-options">
+                            <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- panel body -->
+                    <div class="panel-body">
+                        <div class="panel-body">
+                            <div class="form-group col-sm-8">
+                                <label for="field-1" class="col-sm-5 control-label">Password</label>
+
+                                <div class="col-sm-7">
+                                    <input type="password" name="password" class="form-control" id="field-1" placeholder="Password here">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!---login information ends here-->
     
             <!--social information starts hee-->
             <div class="col-md-12">
