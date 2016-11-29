@@ -1,5 +1,5 @@
 <?php
-require_once ("../../vendor/autoload.php");
+require_once("../../vendor/autoload.php");
 session_start();
 use App\Employee\Employee;
 use App\Message\Message;
@@ -39,7 +39,8 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
 
     <script src="../../assets/js/jquery-1.11.3.min.js"></script>
     <script src="../../assets/js/countries.js"></script>
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -847,16 +848,21 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
         </div>
 
         <hr />
-        <div class="col-sm-12"><h1>Add Salary Grade</h1></div>
 
+        <div class="col-sm-8 col-sm-offset-2" style="text-align: right">
+            <a href="javascript:;" onclick="jQuery('#modal-1').modal('show');" class="btn btn-success btn-lg btn-icon icon-left">
+                <i class="entypo-list-add"></i>
+                Add New Item
+            </a>
+        </div>
         <!--personal information starts here-->
-        <form role="form" action="store.php" method="post" enctype="multipart/form-data" class="form-horizontal form-groups-bordered">
-            <div class="col-md-6 col-sm-offset-3">
+        <form role="form" action="../employees/store.php" method="post" enctype="multipart/form-data" class="form-horizontal form-groups-bordered">
+            <div class="col-md-8 col-sm-offset-2">
                 <div class="panel panel-gradient" data-collapsed="0">
 
                     <!-- panel head -->
                     <div class="panel-heading">
-                        <div class="panel-title"><h2>Personal Information</h2></div>
+                        <div class="panel-title"><h2> Update Salary Sheet</h2></div>
 
                         <div class="panel-options">
                             <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
@@ -868,77 +874,27 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
 
 
                         <div class="panel-body">
-                            <div class="form-group col-sm-12">
-                                <label for="field-1" class="col-sm-4 control-label">First Name</label>
+
+                            <?php foreach($allData1 as $data) {?>
+                            <div class="form-group col-sm-6">
+                                <label for="field-1" class="col-sm-4 control-label">Title</label>
 
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="field-1" name="first_name" placeholder="First Name">
+                                    <input type="text" class="form-control" id="field-1" name="title" value=" <?php echo $data['title']?>">
                                 </div>
                             </div>
-                            <div class="form-group col-sm-12">
-                                <label for="field-1" class="col-sm-4 control-label">Last Name</label>
+                            <div class="form-group col-sm-6">
+                                <label for="field-1" class="col-sm-4 control-label"> Ammount</label>
 
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="field-1" name="last_name" placeholder="Last Name">
-                                </div>
-                            </div>
-                            <div class="form-group col-sm-12">
-
-                                <label class="col-sm-4 control-label">Birth Date</label>
-                                <div class="col-sm-8">
-                                    <div class="input-group">
-                                        <input type="text" name="birthday" class="form-control datepicker" data-start-view="2">
-                                        <div class="input-group-addon">
-                                            <a href="#"><i class="entypo-calendar"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group col-sm-12">
-                                <label for="field-1" class="col-sm-4 control-label">Gender</label>
-                                <div class="col-sm-8">
-                                    <select name="gender"  class="selectboxit" data-first-option="false">
-                                        <option>Select gender</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                    </select>
+                                    <input type="text" class="form-control" id="field-1" name="ammount" value="<?php  echo $data['salary']?>">
                                 </div>
                             </div>
 
-                            <div class="form-group col-sm-12">
-                                <label for="field-1" class="col-sm-4 control-label">Marital Status</label>
-
-                                <div class="col-sm-8">
-                                    <select name="marital_status" class="selectboxit" data-first-option="false">
-                                        <option>Select one</option>
-                                        <option value="Married">Married</option>
-                                        <option value="Unmarried">Unmarried</option>
-                                        <option value="Divorced">Divorced</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group col-sm-12">
-                                <label for="field-1" class="col-sm-4 control-label">Nationality</label>
-
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="nationality" id="field-1" placeholder="Nationality">
-                                </div>
-                            </div>
-                            <div class="form-group col-sm-12">
-                                <label for="field-1" class="col-sm-4 control-label">NID No</label>
-
-                                <div class="col-sm-8">
-                                    <input type="text" name="nid" class="form-control" id="field-1" placeholder="National ID card no">
-                                </div>
-                            </div>
-
+                            <?php }?>
                         </div>
-
-
                     </div>
-
                 </div>
-
             </div>  <!--personal information ends hee-->
 
         </form>
@@ -953,6 +909,57 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
             &copy; 2015 <strong>Neon</strong> Admin Theme by <a href="http://laborator.co" target="_blank">Laborator</a>
 
         </footer>
+    </div>
+
+
+
+    <!-- Modal 1 (add new from index.php)-->
+    <div class="modal fade" id="modal-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="well well-sm">
+                        <h4>Please enter your book details.</h4>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <form id="rootwizard-2" method="post" action="store.php" class="form-wizard validate">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab2-1">
+
+                                <div class="row">
+                                    <div class="panel-body">
+                                        <div class="form-group col-sm-6">
+                                            <label for="field-1" class="col-sm-4 control-label">Title</label>
+
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="field-1" name="title" placeholder="Enter Grade Name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label for="field-1" class="col-sm-4 control-label"> Ammount</label>
+
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="field-1" name="ammount" placeholder="Ammount">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success"><i class="fa fa-bookmark"></i> Save </button>
+                                <a type="" class="btn btn-info"><i class="fa fa-clock-o" aria-hidden="true"></i> Reset </a>
+                                <button type="button" class="btn btn-orange pull-right" data-dismiss="modal"><i class="fa fa-arrow-down"></i> Close </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
 

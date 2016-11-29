@@ -850,7 +850,7 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
         <div class="col-sm-12"><h1>Add New Employee</h1></div>
 
         <!--personam information starts here-->
-        <form role="form" action="store.php" method="post" enctype="multipart/form-data" class="form-horizontal form-groups-bordered">
+        <form role="form" action="store.php" method="post" class="form-horizontal form-groups-bordered" enctype="multipart/form-data" >
             <div class="col-md-6">
                 <div class="panel panel-gradient" data-collapsed="0">
     
@@ -919,9 +919,9 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                 </div>
                                 <div class="form-group col-sm-12">
                                     <label for="field-1" class="col-sm-4 control-label">Nationality</label>
-    
+
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="nationality" id="field-1" placeholder="Nationality">
+                                        <input type="text" class="form-control" id="field-1" name="nationality" placeholder="Nationality">
                                     </div>
                                 </div>
                                 <div class="form-group col-sm-12">
@@ -931,9 +931,27 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                         <input type="text" name="nid" class="form-control" id="field-1" placeholder="National ID card no">
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Profile Picture</label>
+                                    <div class="col-sm-5">
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <div class="fileinput-new thumbnail" style="width: 300px; height: 30px;" data-trigger="fileinput">
+                                                <img src="http://placehold.it/500x30" alt="nothing">
+                                            </div>
+                                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 300px; max-height: 300px"></div>
+                                            <div>
+										<span class="btn btn-white btn-file">
+											<span class="fileinput-new">Select image</span>
+											<span class="fileinput-exists">Change</span>
+											<input type="file" name="image" >
+										</span>
+                                                <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
     
                             </div>
-    
     
                     </div>
     
@@ -1075,7 +1093,7 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                     <select name="salary" class="selectboxit" data-first-option="false">
                                         <option>Select one</option>
                                         <?php foreach($allData1 as $data) {?>
-                                        <option value="<?php  echo $data['salary']?>"><?php echo $data['name']?></option>
+                                        <option value="<?php  echo $data['amount']?>"><?php echo $data['title']?></option>
                                         <?php }?>
                                     </select>
                                 </div>
@@ -1120,7 +1138,7 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                     <label for="field-1" class="col-sm-2 control-label">Facebook</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="field-1" placeholder="Placeholder">
+                                        <input type="text" name="fb" class="form-control" id="field-1" placeholder="Placeholder">
                                     </div>
                                 </div>
                             </div>
@@ -1132,7 +1150,7 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                     <label for="field-1" class="col-sm-2 control-label">Twitter</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="field-1" placeholder="Placeholder">
+                                        <input type="text" name="twitter" class="form-control" id="field-1" placeholder="Placeholder">
                                     </div>
                                 </div>
                             </div>
@@ -1143,7 +1161,7 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                     <label for="field-1" class="col-sm-2 control-label">Linkedin</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="field-1" placeholder="Placeholder">
+                                        <input type="text" name="linkedin" class="form-control" id="field-1" placeholder="Placeholder">
                                     </div>
                                 </div>
                             </div>
@@ -1154,7 +1172,7 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                     <label for="field-1" class="col-sm-2 control-label">Google+</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="field-1" placeholder="Placeholder">
+                                        <input type="text" name="googleplus" class="form-control" id="field-1" placeholder="Placeholder">
                                     </div>
                                 </div>
                             </div>
