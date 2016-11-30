@@ -1,3 +1,16 @@
+<?php
+include('../../vendor/autoload.php');
+use App\Employee\Employee;
+use App\Message\Message;
+use App\Utility\Utility;
+
+$obj = new Employee();
+$obj->setData($_GET);
+$singleData = $obj->view("obj");
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -841,7 +854,7 @@
 				<div class="col-sm-2">
 					
 					<a href="#" class="profile-picture">
-						<img src="../../assets/images/profile-picture.png" class="img-responsive img-circle" />
+						<img src="../../resource/images/<?php echo $singleData->profile_picture;?>" class="img-responsive img-circle" />
 					</a>
 					
 				</div>
@@ -852,12 +865,12 @@
 						<li>
 							<div class="profile-name">
 								<strong>
-									<a href="#">Art Ramadani</a>
+									<a href="#"><?php echo $singleData->first_name." ".$singleData->last_name;?></a>
 									<a href="#" class="user-status is-online tooltip-primary" data-toggle="tooltip" data-placement="top" data-original-title="Online"></a>
 									<!-- User statuses available classes "is-online", "is-offline", "is-idle", "is-busy" -->						</strong>
-								<span><a href="#"><i class="entypo-phone"></i>01912119318</a></span>
-								<span><a href="#"><i class="entypo-mail"></i>mahmud@gmail.com</a></span>
-								<span><a href="#"><i class="entypo-briefcase"></i>Marketing Manager</a></span>
+								<span><a href="#"><i class="entypo-phone"></i><?php echo $singleData->phone_number;?></a></span>
+								<span><a href="#"><i class="entypo-mail"></i><?php echo $singleData->email;?></a></span>
+								<span><a href="#"><i class="entypo-briefcase"></i><?php echo $singleData->role;?></a></span>
 							</div>
 						</li>
 						
@@ -870,15 +883,15 @@
 					<div class="col-sm-12">
 
 					<p class="bs-example">
-						<a href="edit.php?id=<?php echo $data->id?>" class="btn btn-success btn-lg btn-icon icon-left" role="button">
+						<a href="edit.php?id=<?php echo $singleData->id?>" class="btn btn-success btn-lg btn-icon icon-left" role="button">
 							<i class="entypo-pencil"></i>
 							Edit Profile
 						</a>
-						<a href="edit.php?id=<?php echo $data->id?>" class="btn btn-warning btn-lg btn-icon icon-left" role="button">
+						<a href="edit.php?id=<?php echo $singleData->id?>" class="btn btn-warning btn-lg btn-icon icon-left" role="button">
 							<i class="entypo-alert"></i>
 							Hold Profile
 						</a>
-						<a href="edit.php?id=<?php echo $data->id?>" class="btn btn-danger btn-lg btn-icon icon-left" role="button">
+						<a href="edit.php?id=<?php echo $singleData->id?>" class="btn btn-danger btn-lg btn-icon icon-left" role="button">
 							<i class="entypo-cancel"></i>
 							Delete Profile
 						</a>
@@ -887,10 +900,10 @@
 					</div>
 					<div class="col-sm-12">
 						<p class="bs-example">
-							<i class="fa fa-facebook-square fa-3x" style="margin-right: 5px;"></i>
-							<i class="fa fa-twitter-square fa-3x" style="margin-right: 5px;"></i>
-							<i class="fa fa-google-plus-square fa-3x" style="margin-right: 5px;"></i>
-							<i class="fa fa-linkedin-square fa-3x"></i>
+							<a href="http://<?php echo $singleData->fb;?>" ><i class="fa fa-facebook-square fa-3x" style="margin-right: 5px;"></i></a>
+							<a href="http://<?php echo $singleData->twitter;?>"><i class="fa fa-twitter-square fa-3x" style="margin-right: 5px;"></i></a>
+							<a href="http://<?php echo $singleData->googleplus;?>"><i class="fa fa-google-plus-square fa-3x" style="margin-right: 5px;"></i></a>
+								<a href="http://<?php echo $singleData->linkedin;?>"><i class="fa fa-linkedin-square fa-3x"></i></a>
 
 						</p>
 
@@ -909,13 +922,13 @@
 							<li>
 								<a href="#">
 									<i class="entypo-location"></i>
-									Chittagong
+									<?php echo $singleData->city;?>
 								</a>
 							</li>
 							
 							<li>
 								<i class="entypo-calendar"></i>
-								Joined <b>16 October</b>
+								Joined <b><?php echo $singleData->join_date;?></b>
 
 							</li>
 							<li>
@@ -926,28 +939,7 @@
 						</ul>
 					</div>
 
-					<div class="col-sm-6">
 
-						<ul class="user-details">
-							<li>
-								<a href="#">
-									<i class="entypo-location"></i>
-									Chittagong
-								</a>
-							</li>
-
-							<li>
-								<i class="entypo-calendar"></i>
-								Joined <b>16 October</b>
-
-							</li>
-							<li>
-								<i class="entypo-calendar"></i>
-								Type: <b>Full Time</b>
-
-							</li>
-						</ul>
-					</div>
 					
 				</div>
 
@@ -1011,31 +1003,31 @@
 										<tbody>
 										<tr>
 											<td class="col-sm-2">Employee ID:</td>
-											<td class="col-sm-2">4242423424</td>
+											<td class="col-sm-2"><?php echo $singleData->employee_id;?></td>
 
 
 										</tr>
 										<tr>
 											<td class="col-sm-2">Full Name:</td>
-											<td class="col-sm-5">Mahmud Sabuj</td>
+											<td class="col-sm-5"><?php echo $singleData->first_name." ".$singleData->last_name;?></td>
 											<td class="col-sm-2">Gender</td>
-											<td class="col-sm-3">Male</td>
+											<td class="col-sm-3"><?php echo $singleData->gender;?></td>
 
 										</tr>
 
 										<tr>
 											<td class="col-sm-2">Date of Birth:</td>
-											<td class="col-sm-5">08-09-1993</td>
+											<td class="col-sm-5"><?php echo $singleData->birthday;?></td>
 											<td class="col-sm-2">Marital Satatus</td>
-											<td class="col-sm-3">Married</td>
+											<td class="col-sm-3"><?php echo $singleData->marital_status;?></td>
 
 										</tr>
 
 										<tr>
 											<td class="col-sm-2">Nationality:</td>
-											<td class="col-sm-5">Bangladeshi</td>
+											<td class="col-sm-5"><?php echo $singleData->nationality;?></td>
 											<td class="col-sm-2">NID No:</td>
-											<td class="col-sm-3">38383838383383</td>
+											<td class="col-sm-3"><?php echo $singleData->nid;?></td>
 
 										</tr>
 
@@ -1059,7 +1051,7 @@
 									<tbody>
 									<tr>
 										<td class="col-sm-2">Employee ID:</td>
-										<td class="col-sm-2">4242423424</td>
+										<td class="col-sm-2"><?php echo $singleData->employee_id;?></td>
 
 
 									</tr>
@@ -1067,17 +1059,17 @@
 
 									<tr>
 										<td class="col-sm-2">Join Date:</td>
-										<td class="col-sm-5">08-09-1993</td>
+										<td class="col-sm-5"><?php echo $singleData->join_date;?></td>
 										<td class="col-sm-2">Role:</td>
-										<td class="col-sm-3">Manager</td>
+										<td class="col-sm-3"><?php echo $singleData->role;?></td>
 
 									</tr>
 
 									<tr>
 										<td class="col-sm-2">Salary:</td>
-										<td class="col-sm-5">50000</td>
+										<td class="col-sm-5"><?php echo $singleData->salary;?></td>
 										<td class="col-sm-2">Department:</td>
-										<td class="col-sm-3">Sales</td>
+										<td class="col-sm-3"><?php echo $singleData->dept;?></td>
 
 									</tr>
 
@@ -1101,7 +1093,7 @@
 									<tbody>
 									<tr>
 										<td class="col-sm-2">Employee ID:</td>
-										<td class="col-sm-2">4242423424</td>
+										<td class="col-sm-2"><?php echo $singleData->employee_id;?></td>
 
 
 									</tr>
@@ -1109,25 +1101,25 @@
 
 									<tr>
 										<td class="col-sm-2">Phone:</td>
-										<td class="col-sm-5">39388383383</td>
+										<td class="col-sm-5"><?php echo $singleData->phone_number;?></td>
 										<td class="col-sm-2">Email ID:</td>
-										<td class="col-sm-3">sfsf@gmail.com</td>
+										<td class="col-sm-3"><?php echo $singleData->email;?></td>
 
 									</tr>
 
 									<tr>
 										<td class="col-sm-2">Address:</td>
-										<td class="col-sm-5">Chowmuhoni, North Agrabad, agrabad</td>
+										<td class="col-sm-5"><?php echo $singleData->address1." ".$singleData->address2;?></td>
 										<td class="col-sm-2">Zip code:</td>
-										<td class="col-sm-3">4000</td>
+										<td class="col-sm-3"><?php echo $singleData->post_code;?></td>
 
 									</tr>
 
 									<tr>
 										<td class="col-sm-2">City:</td>
-										<td class="col-sm-5">Chittagong</td>
+										<td class="col-sm-5"><?php echo $singleData->city;?></td>
 										<td class="col-sm-2">Country:</td>
-										<td class="col-sm-3">Bangladesh</td>
+										<td class="col-sm-3"><?php echo $singleData->country;?></td>
 
 									</tr>
 
@@ -1266,16 +1258,16 @@
 									<td class="col-sm-1"><img src="../../assets/images/documents.png" alt="" style="width: 34px;"></td>
 									<td class="col-sm-5"># document_of_mahmud_sabuj_for_job.docx</td>
 									<td class="col-sm-6">
-										<a href="edit.php?id=<?php echo $data->id?>" class="btn btn-success btn-sm btn-icon icon-left" role="button">
+										<a href="edit.php?id=<?php echo $singleData->id?>" class="btn btn-success btn-sm btn-icon icon-left" role="button">
 											<i class="entypo-link"></i>
 											View
 										</a>
 
-										<a href="trash.php?id=<?php echo $data->id?>" class="btn btn-orange btn-sm btn-icon icon-left">
+										<a href="trash.php?id=<?php echo $singleData->id?>" class="btn btn-orange btn-sm btn-icon icon-left">
 											<i class="entypo-download"></i>
 											Download
 										</a>
-										<a href="delete.php?id=<?php echo $data->id?>" onclick="return checkDelete()" class="btn btn-danger btn-sm btn-icon icon-left" role="button">
+										<a href="delete.php?id=<?php echo $singleData->id?>" onclick="return checkDelete()" class="btn btn-danger btn-sm btn-icon icon-left" role="button">
 											<i class="entypo-cancel"></i>
 											Delete
 										</a>
@@ -1285,16 +1277,16 @@
 									<td class="col-sm-1"><img src="../../assets/images/documents.png" alt="" style="width: 34px;"></td>
 									<td class="col-sm-5"># document_of_mahmud_sabuj_for_job.docx</td>
 									<td class="col-sm-6">
-										<a href="edit.php?id=<?php echo $data->id?>" class="btn btn-success btn-sm btn-icon icon-left" role="button">
+										<a href="edit.php?id=<?php echo $singleData->id?>" class="btn btn-success btn-sm btn-icon icon-left" role="button">
 											<i class="entypo-link"></i>
 											View
 										</a>
 
-										<a href="trash.php?id=<?php echo $data->id?>" class="btn btn-orange btn-sm btn-icon icon-left">
+										<a href="trash.php?id=<?php echo $singleData->id?>" class="btn btn-orange btn-sm btn-icon icon-left">
 											<i class="entypo-download"></i>
 											Download
 										</a>
-										<a href="delete.php?id=<?php echo $data->id?>" onclick="return checkDelete()" class="btn btn-danger btn-sm btn-icon icon-left" role="button">
+										<a href="delete.php?id=<?php echo $singleData->id?>" onclick="return checkDelete()" class="btn btn-danger btn-sm btn-icon icon-left" role="button">
 											<i class="entypo-cancel"></i>
 											Delete
 										</a>
@@ -1304,16 +1296,16 @@
 									<td class="col-sm-1"><img src="../../assets/images/documents.png" alt="" style="width: 34px;"></td>
 									<td class="col-sm-5"># document_of_mahmud_sabuj_for_job.docx</td>
 									<td class="col-sm-6">
-										<a href="edit.php?id=<?php echo $data->id?>" class="btn btn-success btn-sm btn-icon icon-left" role="button">
+										<a href="edit.php?id=<?php echo $singleData->id?>" class="btn btn-success btn-sm btn-icon icon-left" role="button">
 											<i class="entypo-link"></i>
 											View
 										</a>
 
-										<a href="trash.php?id=<?php echo $data->id?>" class="btn btn-orange btn-sm btn-icon icon-left">
+										<a href="trash.php?id=<?php echo $singleData->id?>" class="btn btn-orange btn-sm btn-icon icon-left">
 											<i class="entypo-download"></i>
 											Download
 										</a>
-										<a href="delete.php?id=<?php echo $data->id?>" onclick="return checkDelete()" class="btn btn-danger btn-sm btn-icon icon-left" role="button">
+										<a href="delete.php?id=<?php echo $singleData->id?>" onclick="return checkDelete()" class="btn btn-danger btn-sm btn-icon icon-left" role="button">
 											<i class="entypo-cancel"></i>
 											Delete
 										</a>

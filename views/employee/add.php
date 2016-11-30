@@ -8,10 +8,8 @@ use App\Utility\Utility;
 $objEmployee = new Employee();
 $allData = $objEmployee->index();
 $allData1 = $objEmployee->salarysheet();
-$allData1 = $objEmployee->department();
 $recordSet = $objEmployee->index("OBJ");
 $recordSet1 = $objEmployee->salarysheet("OBJ");
-$recordSet1 = $objEmployee->department("OBJ");
 
 ?>
 
@@ -1095,7 +1093,7 @@ $recordSet1 = $objEmployee->department("OBJ");
                                     <select name="salary" class="selectboxit" data-first-option="false">
                                         <option>Select one</option>
                                         <?php foreach($allData1 as $data) {?>
-                                        <option value="<?php  echo $data['salary']?>"><?php echo $data['name']?></option>
+                                        <option value="<?php  echo $data['amount']?>"><?php echo $data['title']?></option>
                                         <?php }?>
                                     </select>
                                 </div>
@@ -1106,9 +1104,9 @@ $recordSet1 = $objEmployee->department("OBJ");
                             <div class="col-sm-8">
                                 <select name="dept" class="selectboxit" data-first-option="false">
                                     <option>Select one</option>
-                                    <?php foreach($allData1 as $data) {?>
-                                        <option value="<?php echo $data['dept']?>"><?php echo $data['dept']?></option>
-                                    <?php }?>
+                                    <option value="Administration">Administration</option>
+                                    <option value="Sales">Sales</option>
+                                    <option value="Marketing">Marketing</option>
                                 </select>
                             </div>
                         </div>
@@ -1117,35 +1115,6 @@ $recordSet1 = $objEmployee->department("OBJ");
             </div>
     
             <!---Job information ends here-->
-
-            <!--login information starts hee-->
-            <div class="col-md-12">
-                <div class="panel panel-gradient" data-collapsed="0">
-
-                    <!-- panel head -->
-                    <div class="panel-heading">
-                        <div class="panel-title"><h2>Login Information</h2></div>
-
-                        <div class="panel-options">
-                            <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- panel body -->
-                    <div class="panel-body">
-                        <div class="panel-body">
-                            <div class="form-group col-sm-8">
-                                <label for="field-1" class="col-sm-5 control-label">Password</label>
-
-                                <div class="col-sm-7">
-                                    <input type="password" name="password" class="form-control" id="field-1" placeholder="Password here">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!---login information ends here-->
     
             <!--social information starts hee-->
             <div class="col-md-12">

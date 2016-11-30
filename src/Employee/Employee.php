@@ -385,13 +385,13 @@ class Employee extends DB
 
     public function countDept(){
 
-        $sql="SELECT count(`id`) as count FROM `department` ";
-        $STH=$this->connection->query($sql);
-        $STH->setFetchMode(PDO::FETCH_OBJ);
-
-
-        $arrOneData  = $STH->fetch();
-        // var_dump($arrOneData);die();
-        return $arrOneData;
+//        $sql="SELECT count(`id`) as count FROM `department` ";
+//        $STH=$this->connection->query($sql);
+//        $STH->setFetchMode(PDO::FETCH_OBJ);
+//
+//
+//        $arrOneData  = $STH->fetch();
+//        // var_dump($arrOneData);die();
+//        return $arrOneData;
     }
 }

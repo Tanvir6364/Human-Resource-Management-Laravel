@@ -4,6 +4,8 @@ use App\Employee\Employee;
 use App\Message\Message;
 use App\Utility\Utility;
 $obj = new Employee();
+$someData = $obj->index("OBJ");
+
 
 ?>
 
@@ -369,62 +371,28 @@ $obj = new Employee();
             <tbody>
 
             <tr class="odd gradeX">
-                <td>12322</td>
-                <td>Tanvir Ahmed</td>
-                <td>89898793878</td>
-                <td>Manager</td>
-                <td>Sales</td>
-                <td>
-                    <a href="edit.php?id=<?php echo $data->id?>" class="btn btn-success btn-md btn-icon icon-left" role="button">
-                        <i class="entypo-user"></i>
-                        View
-                    </a>
-
-                    <a href="edit.php?id=<?php echo $data->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
-                        <i class="entypo-cancel"></i>
-                        Delete
-                    </a>
-                </td>
-
-            </tr>
+                <?php foreach($someData as $oneData){?>
             <tr class="odd gradeX">
-                <td>12322</td>
-                <td>Tanvir Ahmed</td>
-                <td>89898793878</td>
-                <td>Manager</td>
-                <td>Sales</td>
+                <td><?php echo $oneData->employee_id;?></td>
+                <td><?php echo $oneData->first_name." ".$oneData->last_name;?></td>
+                <td><?php echo $oneData->phone_number;?></td>
+                <td><?php echo $oneData->role;?></td>
+                <td><?php echo $oneData->dept;?></td>
                 <td>
-                    <a href="edit.php?id=<?php echo $data->id?>" class="btn btn-success btn-md btn-icon icon-left" role="button">
+                    <a href="profile.php?id=<?php echo $oneData->id?>" class="btn btn-success btn-md btn-icon icon-left" role="button">
                         <i class="entypo-user"></i>
                         View
                     </a>
 
-                    <a href="edit.php?id=<?php echo $data->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
+                    <a href="delete.php?id=<?php echo $oneData->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
                         <i class="entypo-cancel"></i>
                         Delete
                     </a>
                 </td>
 
             </tr>
-            <tr class="odd gradeX">
-                <td>12322</td>
-                <td>Tanvir Ahmed</td>
-                <td>89898793878</td>
-                <td>Manager</td>
-                <td>Sales</td>
-                <td>
-                    <a href="edit.php?id=<?php echo $data->id?>" class="btn btn-success btn-md btn-icon icon-left" role="button">
-                        <i class="entypo-user"></i>
-                        View
-                    </a>
+            <?php }?>
 
-                    <a href="edit.php?id=<?php echo $data->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
-                        <i class="entypo-cancel"></i>
-                        Delete
-                    </a>
-                </td>
-
-            </tr>
 
             </tbody>
             <tfoot>
