@@ -1,10 +1,11 @@
 <?php
+
 include('../../vendor/autoload.php');
 use App\Employee\Employee;
 use App\Message\Message;
 use App\Utility\Utility;
 $obj = new Employee();
-$someData = $obj->index("OBJ");
+$someData = $obj->trash_list("OBJ");
 
 
 ?>
@@ -22,7 +23,7 @@ $someData = $obj->index("OBJ");
 
     <link rel="icon" href="../../assets/img/favicon.ico">
 
-    <title>City Name List View | Atomic Project</title>
+    <title>Trash List</title>
 
     <link rel="stylesheet" href="../../assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
     <link rel="stylesheet" href="../../assets/css/font-icons/entypo/css/entypo.css">
@@ -384,9 +385,13 @@ $someData = $obj->index("OBJ");
                         View
                     </a>
 
-                    <a href="trash.php?id=<?php echo $oneData->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
+                    <a href="recover.php?id=<?php echo $oneData->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
                         <i class="entypo-cancel"></i>
-                        Trash
+                        recover
+                    </a>
+                    <a href="delete.php?id=<?php echo $oneData->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
+                        <i class="entypo-cancel"></i>
+                        Delete
                     </a>
                 </td>
 
@@ -411,19 +416,19 @@ $someData = $obj->index("OBJ");
         <table class="table">
             <tr>
                 <td>
-                    <a href="add.php" onclick="jQuery('#modal-1').modal('show');" class="btn btn-success btn-lg btn-icon icon-left">
+                    <a href="javascript:;" onclick="jQuery('#modal-1').modal('show');" class="btn btn-success btn-lg btn-icon icon-left">
                         <i class="entypo-list-add"></i>
                         Add New Item
                     </a>
                 </td>
                 <td>
-                    <a href="trashed.php" onclick="jQuery('').modal('show');" class="btn btn-orange btn-lg btn-icon icon-left">
+                    <a href="javascript:;" onclick="jQuery('').modal('show');" class="btn btn-orange btn-lg btn-icon icon-left">
                         <i class="entypo-trash"></i>
                         View Trash Items
                     </a>
                 </td>
                 <td>
-                    <a href="xl.php" onclick="jQuery('').modal('show');" class="btn btn-info btn-lg btn-icon icon-left">
+                    <a href="javascript:;" onclick="jQuery('').modal('show');" class="btn btn-info btn-lg btn-icon icon-left">
                         <i class="entypo-trash"></i>
                         Download as Excel
                     </a>

@@ -367,7 +367,7 @@ class Employee extends DB
             Message::message("<div id='message'><h3 align='center'> Failed! Data Has Not Been Restore Successfully!</h3></div>");
 
 
-        Utility::redirect('TrashList.php');
+        Utility::redirect('trashed.php');
     }
 
 
