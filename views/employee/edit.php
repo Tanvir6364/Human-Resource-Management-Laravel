@@ -9,7 +9,7 @@ $objEmployee = new Employee();
 $objEmployee->setData($_GET);
 $singleData = $objEmployee->view("obj");
 
-$recordSet1 = $objEmployee->salarysheet("OBJ");
+$data = $objEmployee->salarysheet();
 
 ?>
 
@@ -872,14 +872,14 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                 <label for="field-1" class="col-sm-4 control-label">First Name</label>
 
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="field-1" name="first_name" value="<?php echo $singleData->first;?>">
+                                    <input type="text" class="form-control" id="field-1" name="first_name" value="<?php echo $singleData->first_name;?>">
                                 </div>
                             </div>
                             <div class="form-group col-sm-12">
                                 <label for="field-1" class="col-sm-4 control-label">Last Name</label>
 
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="field-1" name="last_name" value="<?php echo $singleData->first;?>">
+                                    <input type="text" class="form-control" id="field-1" name="last_name" value="<?php echo $singleData->last_name;?>">
                                 </div>
                             </div>
                             <div class="form-group col-sm-12">
@@ -910,10 +910,10 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
 
                                 <div class="col-sm-8">
                                     <select name="marital_status" class="selectboxit" data-first-option="false">
-                                        <option>Select one</option>
-                                        <option value="Married">Married</option>
-                                        <option value="Unmarried">Unmarried</option>
-                                        <option value="Divorced">Divorced</option>
+
+                                        <option value="Married" <?php if($singleData->marital_status=="Married")echo "selected";?>>Married</option>
+                                        <option value="Unmarried" <?php if($singleData->marital_status=="Unmarried")echo "selected";?>>Unmarried</option>
+                                        <option value="Divorced" <?php if($singleData->marital_status=="Divorced")echo "selected";?>>Divorced</option>
                                     </select>
                                 </div>
                             </div>
@@ -921,14 +921,14 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                 <label for="field-1" class="col-sm-4 control-label">Nationality</label>
 
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="field-1" name="nationality" placeholder="Nationality">
+                                    <input type="text" class="form-control" id="field-1" name="nationality" value="<?php echo $singleData->nationality;?>">
                                 </div>
                             </div>
                             <div class="form-group col-sm-12">
                                 <label for="field-1" class="col-sm-4 control-label">NID No</label>
 
                                 <div class="col-sm-8">
-                                    <input type="text" name="nid" class="form-control" id="field-1" placeholder="National ID card no">
+                                    <input type="text" name="nid" class="form-control" id="field-1" value="<?php echo $singleData->nid;?>">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -936,7 +936,7 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                 <div class="col-sm-5">
                                     <div class="fileinput fileinput-new" data-provides="fileinput">
                                         <div class="fileinput-new thumbnail" style="width: 300px; height: 30px;" data-trigger="fileinput">
-                                            <img src="http://placehold.it/500x30" alt="nothing">
+                                            <img src="../../resource/images/<?php echo $singleData->profile_picture;?>" alt="image">
                                         </div>
                                         <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 300px; max-height: 300px"></div>
                                         <div>
@@ -982,28 +982,28 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                 <label for="field-1" class="col-sm-4 control-label">Phone Number</label>
 
                                 <div class="col-sm-8">
-                                    <input type="text" name="phone_number" class="form-control" id="field-1" placeholder="Phone Number">
+                                    <input type="text" name="phone_number" class="form-control" id="field-1" value="<?php echo $singleData->phone_number;?>">
                                 </div>
                             </div>
                             <div class="form-group col-sm-12">
                                 <label for="field-1" class="col-sm-4 control-label">Email Address</label>
 
                                 <div class="col-sm-8">
-                                    <input type="text" name="email" class="form-control" id="field-1" placeholder="Email Address">
+                                    <input type="text" name="email" class="form-control" id="field-1" value="<?php echo $singleData->email;?>">
                                 </div>
                             </div>
                             <div class="form-group col-sm-12">
                                 <label for="field-1" class="col-sm-4 control-label">Address Line #1</label>
 
                                 <div class="col-sm-8">
-                                    <input type="text" name="address1" class="form-control" id="field-1" placeholder="Address Line #1">
+                                    <input type="text" name="address1" class="form-control" id="field-1" value="<?php echo $singleData->address1;?>">
                                 </div>
                             </div>
                             <div class="form-group col-sm-12">
                                 <label for="field-1" class="col-sm-4 control-label">Address Line #2</label>
 
                                 <div class="col-sm-8">
-                                    <input type="text" name="address2" class="form-control" id="field-1" placeholder="Address Line #2">
+                                    <input type="text" name="address2" class="form-control" id="field-1" value="<?php echo $singleData->address2;?>">
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
@@ -1023,7 +1023,7 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                 <label for="field-1" class="col-sm-4 control-label">Zip/Post Code</label>
 
                                 <div class="col-sm-8">
-                                    <input type="text" name="post_code" class="form-control" id="field-1" placeholder="Zip/Post Code">
+                                    <input type="text" name="post_code" class="form-control" id="field-1" value="<?php echo $singleData->post_code;?>">
                                 </div>
                             </div>
 
@@ -1056,7 +1056,7 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                 <label for="field-1" class="col-sm-5 control-label">Employee ID</label>
 
                                 <div class="col-sm-7">
-                                    <input type="text" name="employee_id" class="form-control" id="field-1" placeholder="Employee ID">
+                                    <input type="text" name="employee_id" class="form-control" id="field-1" value="<?php echo $singleData->employee_id;?>">
                                 </div>
                             </div>
                         </div>
@@ -1066,7 +1066,7 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                     <label for="field-1" class="col-sm-4 control-label">Join Date</label>
 
                                     <div class="col-sm-8">
-                                        <input type="date" name="join_date" class="form-control" id="field-1">
+                                        <input type="date" name="join_date" value="<?php echo $singleData->join_date;?>" class="form-control" id="field-1">
                                     </div>
                                 </div>
                             </div>
@@ -1078,10 +1078,10 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                 <div class="col-sm-8">
                                     <select name="role" class="selectboxit" data-first-option="false">
                                         <option>Select one</option>
-                                        <option value="CEO">CEO</option>
-                                        <option value="Manager">Manager</option>
-                                        <option value="Ass. Manager">Ass. Manager</option>
-                                        <option value="Executive">Executive</option>
+                                        <option value="CEO" <?php if($singleData->role=="CEO")echo "selected";?>>CEO</option>
+                                        <option value="Manager" <?php if($singleData->role=="Manager")echo "selected";?>>Manager</option>
+                                        <option value="Ass. Manager" <?php if($singleData->role=="Ass. Manager")echo "selected";?>>Ass. Manager</option>
+                                        <option value="Executive" <?php if($singleData->role=="Executive")echo "selected";?>>Executive</option>
                                     </select>
                                 </div>
                             </div>
@@ -1093,7 +1093,7 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                     <select name="salary" class="selectboxit" data-first-option="false">
                                         <option>Select one</option>
                                         <?php foreach($allData1 as $data) {?>
-                                            <option value="<?php  echo $data['amount']?>"><?php echo $data['title']?></option>
+                                            <option value="<?php  echo $data['amount']?> <?php if($singleData->amount==$data['amount'])echo "selected";?>"><?php echo $data['title']?></option>
                                         <?php }?>
                                     </select>
                                 </div>
