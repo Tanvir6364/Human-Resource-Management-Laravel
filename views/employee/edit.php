@@ -2,14 +2,15 @@
 require_once ("../../vendor/autoload.php");
 session_start();
 use App\Employee\Employee;
+use App\SalarySheet\SalarySheet;
 use App\Message\Message;
 use App\Utility\Utility;
 
 $objEmployee = new Employee();
 $objEmployee->setData($_GET);
 $singleData = $objEmployee->view("obj");
-
-$data = $objEmployee->salarysheet();
+$objSalary = new SalarySheet();
+$data = $objSalary->index();
 
 ?>
 
@@ -850,7 +851,9 @@ $data = $objEmployee->salarysheet();
         <div class="col-sm-12"><h1>Edit <?php echo $singleData->first_name." ".$singleData->last_name."'s profile."?></h1></div>
 
         <!--personam information starts here-->
-        <form role="form" action="store.php" method="post" class="form-horizontal form-groups-bordered" enctype="multipart/form-data" >
+        <form role="form" action="update.php" method="post" class="form-horizontal form-groups-bordered" enctype="multipart/form-data" >
+            <input type="hidden" name="id" value="<?php echo $singleData->id;?>">
+            <input type="text" name="existingPic" value="<?php echo $singleData->profile_picture;?>">
             <div class="col-md-6">
                 <div class="panel panel-gradient" data-collapsed="0">
 
@@ -1091,9 +1094,9 @@ $data = $objEmployee->salarysheet();
                                 <label for="field-1" class="col-sm-4 control-label">Salary</label>
                                 <div class="col-sm-8">
                                     <select name="salary" class="selectboxit" data-first-option="false">
-                                        <option>Select one</option>
-                                        <?php foreach($allData1 as $data) {?>
-                                            <option value="<?php  echo $data['amount']?> <?php if($singleData->amount==$data['amount'])echo "selected";?>"><?php echo $data['title']?></option>
+
+                                        <?php foreach($data as $value) {?>
+                                            <option value="<?php  echo $value->amount?> <?php if($singleData->amount==$value->amount)echo "selected";?>"><?php echo $value->title;?></option>
                                         <?php }?>
                                     </select>
                                 </div>
@@ -1103,10 +1106,10 @@ $data = $objEmployee->salarysheet();
                             <label for="field-1" class="col-sm-4 control-label">Department</label>
                             <div class="col-sm-8">
                                 <select name="dept" class="selectboxit" data-first-option="false">
-                                    <option>Select one</option>
-                                    <option value="Administration">Administration</option>
-                                    <option value="Sales">Sales</option>
-                                    <option value="Marketing">Marketing</option>
+
+                                    <option value="Administration" <?php if($singleData->dept=="Administration")echo "selected"?>>Administration</option>
+                                    <option value="Sales" <?php if($singleData->dept=="Sales")echo "selected"?>>Sales</option>
+                                    <option value="Marketing" <?php if($singleData->dept=="Marketing")echo "selected"?>>Marketing</option>
                                 </select>
                             </div>
                         </div>
@@ -1138,7 +1141,7 @@ $data = $objEmployee->salarysheet();
                                     <label for="field-1" class="col-sm-2 control-label">Facebook</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" name="fb" class="form-control" id="field-1" placeholder="Placeholder">
+                                        <input type="text" name="fb" class="form-control" id="field-1" value="<?php echo $singleData->fb;?>">
                                     </div>
                                 </div>
                             </div>
@@ -1150,7 +1153,7 @@ $data = $objEmployee->salarysheet();
                                     <label for="field-1" class="col-sm-2 control-label">Twitter</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" name="twitter" class="form-control" id="field-1" placeholder="Placeholder">
+                                        <input type="text" name="twitter" class="form-control" id="field-1" value="<?php echo $singleData->twitter;?>">
                                     </div>
                                 </div>
                             </div>
@@ -1161,7 +1164,7 @@ $data = $objEmployee->salarysheet();
                                     <label for="field-1" class="col-sm-2 control-label">Linkedin</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" name="linkedin" class="form-control" id="field-1" placeholder="Placeholder">
+                                        <input type="text" name="linkedin" class="form-control" id="field-1" value="<?php echo $singleData->linkedin;?>">
                                     </div>
                                 </div>
                             </div>
@@ -1172,7 +1175,7 @@ $data = $objEmployee->salarysheet();
                                     <label for="field-1" class="col-sm-2 control-label">Google+</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" name="googleplus" class="form-control" id="field-1" placeholder="Placeholder">
+                                        <input type="text" name="googleplus" class="form-control" id="field-1" value="<?php echo $singleData->googleplus;?>">
                                     </div>
                                 </div>
                             </div>

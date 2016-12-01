@@ -888,11 +888,11 @@ $singleData = $obj->view("obj");
 							<i class="entypo-pencil"></i>
 							Edit Profile
 						</a>
-						<a href="edit.php?id=<?php echo $singleData->id?>" class="btn btn-warning btn-lg btn-icon icon-left" role="button">
+						<a href="trash.php?id=<?php echo $singleData->id?>" class="btn btn-warning btn-lg btn-icon icon-left" role="button">
 							<i class="entypo-alert"></i>
 							Hold Profile
 						</a>
-						<a href="edit.php?id=<?php echo $singleData->id?>" class="btn btn-danger btn-lg btn-icon icon-left" role="button">
+						<a href="delete.php?id=<?php echo $singleData->id?>" class="btn btn-danger btn-lg btn-icon icon-left" role="button">
 							<i class="entypo-cancel"></i>
 							Delete Profile
 						</a>

@@ -34,7 +34,13 @@ class SalarySheet extends DB{
             $this->amount = $data['amount'];
         }
     }
+    public function index(){
 
+        $STH = $this->connection->query('SELECT * from salary_sheet');
+        $STH->setFetchMode(PDO::FETCH_OBJ);
+        $arrAllData  = $STH->fetchAll();
+        return $arrAllData;
+    }
     //for adding item from create.php
     public function store(){
         $arr = array($this->title, $this->amount);

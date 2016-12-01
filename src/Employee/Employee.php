@@ -259,36 +259,14 @@ class Employee extends DB
     }
 
     public function update(){
-        /*echo $this->gender ;
-        echo $this->id;
-        die();*/
-        //$arrData  = array($this->gender,$this->id);
 
-        $sql = "UPDATE `employee` SET ``employee_id`=?,`first_name`=?,`last_name`=?,`birthday`=?,`gender`=?,`marital_status`=?,`nid`=?,`phone_number`=?,`email`=?,`nationality`=?,`country`=?,`dept`=?,`salary`=?,`join_date`=?,`status`=?,`city`=?,`profile_picture`=?,`address`=?`  WHERE `id`=?";
-        // echo $sql;die();
+    $arr = array($this->first_name, $this->last_name, $this->birthday, $this->gender, $this->marital_status, $this->nationality,$this->nid, $this->profile_picture,$this->phone_number,$this->email,$this->address1,$this->address2,$this->country,$this->city,$this->post_code,$this->employee_id,$this->join_date,$this->role,$this->salary,$this->dept,$this->fb,$this->twitter,$this->linkedin,$this->googleplus);
+
+        $sql = "UPDATE `employee` SET `first_name` = ?, `last_name` = ?, `birthday` = ?, `gender` = ?, `marital_status` = ?, `nationality` = ?, `nid` = ?, `profile_picture` = ?, `phone_number` = ?, `email` = ?, `address1` = ?, `address2` = ?, `country` = ?, `city` = ?, `post_code` = ?, `employee_id` = ?, `join_date` = ?, `role` = ?, `salary` = ?, `dept` = ?, `fb` = ?, `twitter` = ?, `linkedin` = ?, `googleplus` = ? WHERE `employee`.`id` =".$this->id;
 
         $STH = $this->connection->prepare($sql);
-        $STH->bindParam(1,$this->employee_id);
-        $STH->bindParam(2,$this->first_name);
-        $STH->bindParam(3,$this->last_name);
-        $STH->bindParam(4,$this->birthday);
-        $STH->bindParam(5,$this->gender);
-        $STH->bindParam(6,$this->marital_status);
-        $STH->bindParam(7,$this->nid);
-        $STH->bindParam(8,$this->phone_number);
-        $STH->bindParam(9,$this->join_date);
-        $STH->bindParam(10,$this->status);
-        $STH->bindParam(11,$this->salary);
-        $STH->bindParam(12,$this->email);
-        $STH->bindParam(13,$this->dept);
-        $STH->bindParam(14,$this->nationality);
-        $STH->bindParam(15,$this->country);
-        $STH->bindParam(16,$this->city);
-        $STH->bindParam(17,$this->profile_picture);
-        $STH->bindParam(18,$this->address);
 
-
-        $result = $STH->execute();
+        $result = $STH->execute($arr);
 
 
 
