@@ -39,7 +39,7 @@ class SalarySheet extends DB{
     public function store(){
         $arr = array($this->title, $this->amount);
 
-        $sql="INSERT INTO `salary_sheet` (`name`, `salary`) VALUES (?,?);";
+        $sql="INSERT INTO `salary_sheet` (`title`, `amount`) VALUES (?,?);";
         $STH = $this->connection->prepare($sql);
         $messageme = $STH->execute($arr);
 

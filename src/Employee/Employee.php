@@ -247,8 +247,10 @@ class Employee extends DB
         $STH = $this->connection->query('SELECT * from employee where id='.$this->id);
 
         $fetchMode = strtoupper($fetchMode);
-        if(substr_count($fetchMode, "OBJ")>0)   $STH->setFetchMode(PDO::FETCH_OBJ);
-        else               $STH->setFetchMode(PDO::FETCH_ASSOC);
+        if(substr_count($fetchMode, "OBJ")>0)
+            $STH->setFetchMode(PDO::FETCH_OBJ);
+        else
+            $STH->setFetchMode(PDO::FETCH_ASSOC);
 
         $arrOneData  = $STH->fetch();
         return $arrOneData;

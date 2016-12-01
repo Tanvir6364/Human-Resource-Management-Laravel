@@ -7,6 +7,7 @@ use App\Utility\Utility;
 $obj = new Employee();
 $obj->setData($_GET);
 $singleData = $obj->view("obj");
+//var_dump($obj);die();
 ?>
 
 

@@ -244,7 +244,7 @@ $count1=$obj->countDept();
 
 
             <div class="form-group">
-                <button type="submit" class="btn btn-success"><i class="fa fa-bookmark"></i> Save </button>
+                <button type="submit" value="submit" class="btn btn-success"><i class="fa fa-bookmark"></i> Save </button>
                 <button type="button" class="btn btn-orange pull-right" data-dismiss="modal"><i class="fa fa-arrow-down"></i> Close </button>
             </div>
         </div>

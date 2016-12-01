@@ -875,23 +875,45 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
 
                         <div class="panel-body">
 
-                            <?php foreach($allData1 as $data) {?>
-                            <div class="form-group col-sm-6">
-                                <label for="field-1" class="col-sm-4 control-label">Title</label>
+                            <table class="table table-bordered datatable" id="table-1">
+                                <thead>
+                                <tr>
+                                    <th class="col-lg-1">Grade</th>
+                                    <th class="col-lg-3">Amount</th>
+                                    <th class="col-lg-3">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php foreach($allData1 as $data){?>
+                                <tr class="odd gradeX">
+                                    <td><?php echo $data['title']?></td>
+                                    <td><?php echo $data['amount']?></td>
+                                    <td>
+                                        <a href="update.php?id=<?php echo $allData->id?>" class="btn btn-success btn-md btn-icon icon-left" role="button">
+                                            <i class="entypo-user"></i>
+                                            Update
+                                        </a>
 
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="field-1" name="title" value=" <?php echo $data['name']?>">
-                                </div>
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label for="field-1" class="col-sm-4 control-label"> Amount</label>
+                                        <a href="delete.php?id=<?php echo $allData->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
+                                            <i class="entypo-cancel"></i>
+                                            Delete
+                                        </a>
+                                    </td>
+                                    <?php }?>
+                                </tr>
 
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="field-1" name="ammount" value="<?php  echo $data['salary']?>">
-                                </div>
-                            </div>
 
-                            <?php }?>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th class="col-lg-1">Grade</th>
+                                    <th class="col-lg-3">Amount</th>
+                                    <th class="col-lg-3">Action</th>
+                                </tfoot>
+                            </table>
+
+
+
                         </div>
                     </div>
                 </div>

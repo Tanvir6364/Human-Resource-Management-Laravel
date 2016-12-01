@@ -6,5 +6,5 @@ use App\SalarySheet\SalarySheet;
 $SalarySheet = new SalarySheet();
 $SalarySheet->setData($_POST);
 
-//var_dump($Employee);die();
+//var_dump($SalarySheet);die();
 $SalarySheet->store();

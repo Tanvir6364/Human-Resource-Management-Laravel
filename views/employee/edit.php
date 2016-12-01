@@ -989,7 +989,7 @@ $data = $objEmployee->salarysheet();
                                 <label for="field-1" class="col-sm-4 control-label">Email Address</label>
 
                                 <div class="col-sm-8">
-                                    <input type="text" name="email" class="form-control" id="field-1" value="<?php echo $singleData->email;?>">
+                                    <input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="'example@example.com'" class="form-control" id="field-1" value="<?php echo $singleData->email;?>">
                                 </div>
                             </div>
                             <div class="form-group col-sm-12">

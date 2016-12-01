@@ -989,7 +989,7 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                     <label for="field-1" class="col-sm-4 control-label">Email Address</label>
     
                                     <div class="col-sm-8">
-                                        <input type="text" name="email" class="form-control" id="field-1" placeholder="Email Address">
+                                        <input type="text" name="email" class="form-control" id="field-1" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="'example@example.com'" placeholder="Email Address">
                                     </div>
                                 </div>
                                 <div class="form-group col-sm-12">
