@@ -6,7 +6,7 @@ use App\Message\Message;
 use App\Utility\Utility;
 
 $objEmployee = new OffDays();
-$allData1 = $objEmployee->index();
+$allData1 = $objEmployee->index("obj");
 
 
 ?>
@@ -343,7 +343,7 @@ $allData1 = $objEmployee->index();
             </a>
         </div>
         <!--personal information starts here-->
-        <form role="form" action="../employees/store.php" method="post" enctype="multipart/form-data" class="form-horizontal form-groups-bordered">
+        <form role="form" action="../offdays/delete.php" method="post" enctype="multipart/form-data" class="form-horizontal form-groups-bordered">
             <div class="col-md-8 col-sm-offset-2">
                 <div class="panel panel-gradient" data-collapsed="0">
 
@@ -356,6 +356,7 @@ $allData1 = $objEmployee->index();
                         </div>
                     </div>
 
+
                     <!-- panel body -->
                     <div class="panel-body">
 
@@ -365,20 +366,20 @@ $allData1 = $objEmployee->index();
                             <table class="table table-bordered datatable" id="table-1">
                                 <thead>
                                 <tr>
-                                    <th class="col-lg-1">ID</th>
+                                    <th class="col-lg-1">Serial</th>
                                     <th class="col-lg-3">Off Date</th>
                                     <th class="col-lg-3">Details</th>
                                     <th class="col-lg-3">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php foreach($allData1 as $data){?>
+                                <?php $serial=1; foreach($allData1 as $data){?>
                                 <tr class="odd gradeX">
-                                    <td><?php echo $data->id?></td>
+                                    <td><?php echo $serial++ ?></td>
                                     <td><?php echo $data->date?></td>
                                     <td><?php echo $data->details?></td>
                                     <td>
-                                        <a href="delete.php?id=<?php echo $allData->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
+                                        <a href="delete.php?id=<?php echo $data->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
                                             <i class="entypo-cancel"></i>
                                             Delete
                                         </a>
@@ -390,7 +391,7 @@ $allData1 = $objEmployee->index();
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th class="col-lg-1">ID</th>
+                                    <th class="col-lg-1">Serial</th>
                                     <th class="col-lg-3">Off Date</th>
                                     <th class="col-lg-3">Details</th>
                                     <th class="col-lg-3">Action</th>
@@ -413,7 +414,7 @@ $allData1 = $objEmployee->index();
         <!-- Footer -->
         <footer class="main col-lg-12">
 
-            &copy; 2015 <strong>Neon</strong> Admin Theme by <a href="http://laborator.co" target="_blank">Laborator</a>
+            <?php include '../../footer.php'; ?>
 
         </footer>
     </div>

@@ -373,17 +373,17 @@ $recordSet1 = $objEmployee->department("OBJ");
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php foreach($allData1 as $data){?>
+                                <?php foreach($recordSet1 as $data){?>
                                 <tr class="odd gradeX">
-                                    <td><?php echo $data['id']?></td>
-                                    <td><?php echo $data['dept']?></td>
+                                    <td><?php echo $data->id?></td>
+                                    <td><?php echo $data->dept?></td>
                                     <td>
-                                        <a href="update.php?id=<?php echo $allData->id?>" class="btn btn-success btn-md btn-icon icon-left" role="button">
+                                        <a href="edit.php?id=<?php echo $data->id?>" class="btn btn-success btn-md btn-icon icon-left" role="button">
                                             <i class="entypo-user"></i>
                                             Update
                                         </a>
 
-                                        <a href="delete.php?id=<?php echo $allData->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
+                                        <a href="delete.php?id=<?php echo $data->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
                                             <i class="entypo-cancel"></i>
                                             Delete
                                         </a>
@@ -458,7 +458,6 @@ $recordSet1 = $objEmployee->department("OBJ");
             </div>
         </div>
     </div>
-
 
 
     <!-- Imported styles on this page -->

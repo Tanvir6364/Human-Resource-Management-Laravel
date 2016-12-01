@@ -1,12 +1,20 @@
 <?php
 
 include('../../vendor/autoload.php');
+use App\SalarySheet\SalarySheet;
 use App\Employee\Employee;
 use App\Message\Message;
 use App\Utility\Utility;
-$obj = new Employee();
-$count=$obj->countEmployee();
-$count1=$obj->countDept();
+
+$objEmployee = new Employee();
+$objEmployee->setData($_GET);
+$singleData1 = $objEmployee->view("obj");
+$objSalary = new SalarySheet();
+$data = $objSalary->index();
+$objSalary->setData($_GET);
+$singleData=$objSalary->view("obj");
+$allData2 = $objEmployee->department();
+$recordSet2 = $objEmployee->department("OBJ");
 
 //echo($count);die();
 
@@ -133,7 +141,7 @@ $count1=$obj->countDept();
                     </a>
                     <ul>
                         <li>
-                            <a href="../salary/index.php">
+                            <a href="index.php">
                                 <span class="title">View Grade</span>
                             </a>
                         </li>
@@ -223,32 +231,32 @@ $count1=$obj->countDept();
 
 
 
-    <form id="rootwizard-2" method="post" action="store.php" class="form-wizard validate">
-        <div class="tab-content">
-            <div class="panel-body">
-                <div class="form-group col-sm-6">
-                    <label for="field-1" class="col-sm-4 control-label">Title</label>
+        <form id="rootwizard-2" method="post" action="update.php" class="form-wizard validate">
+            <div class="tab-content">
+                <div class="panel-body">
+                    <div class="form-group col-sm-6">
+                        <label for="field-1" class="col-sm-4 control-label">Grade</label>
 
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="field-1" name="title" placeholder="Enter Grade Name">
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="field-1" name="title" value="<?php echo $singleData->title;?>" placeholder="Enter Grade Name">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="field-1" class="col-sm-4 control-label"> Amount</label>
+
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="field-1" name="amount" value="<?php echo $singleData->amount;?>" placeholder="Amount">
+                        </div>
                     </div>
                 </div>
-                <div class="form-group col-sm-6">
-                    <label for="field-1" class="col-sm-4 control-label"> Amount</label>
 
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="field-1" name="amount" placeholder="Amount">
-                    </div>
+
+                <div class="form-group">
+                    <button type="submit" value="submit" class="btn btn-success"><i class="fa fa-bookmark"></i> Save </button>
+                    <button type="button" class="btn btn-orange pull-right" data-dismiss="modal"><i class="fa fa-arrow-down"></i> Close </button>
                 </div>
             </div>
-
-
-            <div class="form-group">
-                <button type="submit" value="submit" class="btn btn-success"><i class="fa fa-bookmark"></i> Save </button>
-                <button type="button" class="btn btn-orange pull-right" data-dismiss="modal"><i class="fa fa-arrow-down"></i> Close </button>
-            </div>
-        </div>
-    </form>
+        </form>
 
 
         <!-- Footer -->

@@ -678,7 +678,7 @@ $recordSet2 = $objEmployee->department("OBJ");
 
                     </div>
                 </div>
-                <input type="submit" value="submit">
+                <input type="submit" class="btn btn-lg btn-primary" value="submit">
             </div>
 
             <!---social information ends here-->
@@ -689,11 +689,9 @@ $recordSet2 = $objEmployee->department("OBJ");
 
 
         <!-- Footer -->
-        <footer class="main col-lg-12">
-
-            &copy; 2015 <strong>Neon</strong> Admin Theme by <a href="http://laborator.co" target="_blank">Laborator</a>
-
-        </footer>
+        <div class="col-sm-12">
+            <?php include '../../footer.php'; ?>
+        </div>
     </div>
 
 

@@ -51,7 +51,7 @@ class OffDays extends DB{
             Message::message("<h1>5353435<\h1>");
         }
 
-        //Utility::redirect('../../../views/employee/add.php');
+        Utility::redirect('../../views/offdays/index.php');
     }//end of store
 
 
@@ -61,6 +61,24 @@ class OffDays extends DB{
         $STH->setFetchMode(PDO::FETCH_OBJ);
         $arrAllData  = $STH->fetchAll();
         return $arrAllData;
+    }
+    public function delete(){
+
+        $sql = "DELETE FROM off_days WHERE id =".$this->id;
+
+        $STH = $this->connection->prepare($sql);
+
+        $result = $STH->execute();
+
+        if($result)
+            Message::message("<div  id='message'><h3 align='center'> Success! Data Has Been Deleted Successfully!</h3></div>");
+        else
+            Message::message("<div id='message'><h3 align='center'> Failed! Data Has Not Been Deleted Successfully!</h3></div>");
+
+
+        Utility::redirect('index.php');
+
+
     }
 
 }

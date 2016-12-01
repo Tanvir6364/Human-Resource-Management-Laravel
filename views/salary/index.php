@@ -378,12 +378,12 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                     <td><?php echo $data['title']?></td>
                                     <td><?php echo $data['amount']?></td>
                                     <td>
-                                        <a href="update.php?id=<?php echo $allData->id?>" class="btn btn-success btn-md btn-icon icon-left" role="button">
+                                        <a href="edit.php?id=<?php echo $data['id']?>" class="btn btn-success btn-md btn-icon icon-left" role="button">
                                             <i class="entypo-user"></i>
                                             Update
                                         </a>
 
-                                        <a href="delete.php?id=<?php echo $allData->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
+                                        <a href="delete.php?id=<?php echo $data['id']?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
                                             <i class="entypo-cancel"></i>
                                             Delete
                                         </a>

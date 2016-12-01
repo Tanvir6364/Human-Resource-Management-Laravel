@@ -47,9 +47,62 @@ class Department extends DB{
             Message::message("<h1>5353435<\h1>");
         }
 
-        //Utility::redirect('../../../views/employee/add.php');
+        Utility::redirect('index.php');
     }//end of store
+    public function delete(){
 
+        $sql = "DELETE FROM department WHERE id =".$this->id;
+
+        $STH = $this->connection->prepare($sql);
+
+        $result = $STH->execute();
+
+        if($result)
+            Message::message("<div  id='message'><h3 align='center'> Success! Data Has Been Deleted Successfully!</h3></div>");
+        else
+            Message::message("<div id='message'><h3 align='center'> Failed! Data Has Not Been Deleted Successfully!</h3></div>");
+
+
+        Utility::redirect('index.php');
+
+
+    }
+    public function update(){
+
+        $arr = array($this->dept);
+
+        $sql = "UPDATE `department` SET `dept` = ? WHERE `id` =".$this->id;
+
+        $STH = $this->connection->prepare($sql);
+
+        $result = $STH->execute($arr);
+
+
+
+        if($result)
+            Message::message("<div  id='message'><h3 align='center'> Success! Data Has Been Updated Successfully!</h3></div>");
+        else
+            Message::message("<div id='message'><h3 align='center'> Failed! Data Has Not Been Updated Successfully!</h3></div>");
+
+        Utility::redirect('index.php');
+
+
+    }
+    public function view($fetchMode="ASSOC"){
+        // $fetchMode = strtoupper($fetchMode);
+        $STH = $this->connection->query('SELECT * from department where id='.$this->id);
+
+        $fetchMode = strtoupper($fetchMode);
+        if(substr_count($fetchMode, "OBJ")>0)
+            $STH->setFetchMode(PDO::FETCH_OBJ);
+        else
+            $STH->setFetchMode(PDO::FETCH_ASSOC);
+
+        $arrOneData  = $STH->fetch();
+        return $arrOneData;
+
+
+    }
 
 
 }
