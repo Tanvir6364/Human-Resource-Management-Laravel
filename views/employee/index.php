@@ -402,9 +402,13 @@ $someData = $obj->index("OBJ");
                         View
                     </a>
 
-                    <a href="trash.php?id=<?php echo $oneData->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
-                        <i class="entypo-cancel"></i>
+                    <a href="trash.php?id=<?php echo $oneData->id?>" class="btn btn-orange btn-md btn-icon icon-left" role="button">
+                        <i class="entypo-trash"></i>
                         Trash
+                    </a>
+                    <a href="delete.php?id=<?php echo $oneData->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
+                        <i class="entypo-cancel"></i>
+                        Delete
                     </a>
                 </td>
                 <?php }?>
@@ -477,85 +481,23 @@ $someData = $obj->index("OBJ");
 
         <table class="table">
             <tr>
-                <td>
-                    <a href="add.php" onclick="jQuery('#modal-1').modal('show');" class="btn btn-success btn-lg btn-icon icon-left">
+                <td class="col-sm-2">
+                    <a href="add.php" class="btn btn-success btn-lg btn-icon icon-left">
                         <i class="entypo-list-add"></i>
-                        Add New Item
+                        Add New Account
                     </a>
                 </td>
-                <td>
-                    <a href="trashed.php" onclick="jQuery('').modal('show');" class="btn btn-orange btn-lg btn-icon icon-left">
+                <td class="col-sm-10">
+                    <a href="trashed.php" class="btn btn-orange btn-lg btn-icon icon-left">
                         <i class="entypo-trash"></i>
-                        View Trash Items
+                        View Hold Accounts
                     </a>
                 </td>
-                <td>
-                    <a href="xl.php" onclick="jQuery('').modal('show');" class="btn btn-info btn-lg btn-icon icon-left">
-                        <i class="entypo-trash"></i>
-                        Download as Excel
-                    </a>
-                </td>
+
             </tr>
         </table>
 
 
-    </div>
-</div>
-
-
-<!-- Modal 1 (Basic)-->
-<div class="modal fade" id="modal-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <div class="well well-sm">
-                    <h4>Please select your city name.</h4>
-                </div>
-            </div>
-
-            <div class="modal-body">
-                <form id="rootwizard-2" method="post" action="storeindex.php" class="form-wizard validate">
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="tab2-1">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label" for="full_name">User Name</label>
-                                        <input class="form-control" name="username" id="full_name" data-validate="required" placeholder="Your Name" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">City</label>
-
-                                    <div class="col-sm-6">
-                                        <select name="city" class="col-sm-12" style="height: 31px;border-radius: 0px;">
-                                            <option>Select city</option>
-                                            <option value="Dhaka">Dhaka</option>
-                                            <option value="Chittagong">Chittagong</option>
-                                            <option value="Khulna">Khulna</option>
-                                            <option value="Noakhali">Noakhali</option>
-                                            <option value="Comilla">Comilla</option>
-                                        </select>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-success"><i class="fa fa-bookmark"></i> Save </button>
-                            <a type="submit" class="btn btn-info"><i class="fa fa-clock-o" aria-hidden="true"></i> Reset </a>
-                            <a data-dismiss="modal" type="button" class="btn btn-orange pull-right"><i class="fa fa-arrow-down"></i> Close </a>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-        </div>
     </div>
 </div>
 

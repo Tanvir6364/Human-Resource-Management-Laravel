@@ -12,6 +12,12 @@ $singleData = $objEmployee->view("obj");
 $objSalary = new SalarySheet();
 $data = $objSalary->index();
 
+$allData2 = $objEmployee->department();
+$recordSet2 = $objEmployee->department("OBJ");
+
+
+//$allData1 = $objEmployee->salarysheet();
+//$recordSet1 = $objEmployee->salarysheet("OBJ");
 ?>
 
 <!DOCTYPE html>
@@ -1013,9 +1019,9 @@ $data = $objSalary->index();
                                 <label class="control-label col-sm-4" for="country">Select Country:</label>
 
                                 <div class="col-sm-8">
-                                    <select id="country" name ="country"></select>
+                                    <select id="country" name ="country" value=""><?php echo $singleData->country;?></select>
 
-                                    <select name ="city" id ="state"></select>
+                                    <select name ="city" id ="state"><?php echo $singleData->city;?></select>
                                     <script language="javascript">
                                         populateCountries("country", "state");
                                     </script>
@@ -1096,7 +1102,7 @@ $data = $objSalary->index();
                                     <select name="salary" class="selectboxit" data-first-option="false">
 
                                         <?php foreach($data as $value) {?>
-                                            <option value="<?php  echo $value->amount?> <?php if($singleData->amount==$value->amount)echo "selected";?>"><?php echo $value->title;?></option>
+                                            <option value="<?php  echo $value->amount?>"><?php echo $value->title;?></option>
                                         <?php }?>
                                     </select>
                                 </div>
@@ -1107,9 +1113,9 @@ $data = $objSalary->index();
                             <div class="col-sm-8">
                                 <select name="dept" class="selectboxit" data-first-option="false">
 
-                                    <option value="Administration" <?php if($singleData->dept=="Administration")echo "selected"?>>Administration</option>
-                                    <option value="Sales" <?php if($singleData->dept=="Sales")echo "selected"?>>Sales</option>
-                                    <option value="Marketing" <?php if($singleData->dept=="Marketing")echo "selected"?>>Marketing</option>
+                                    <?php foreach($allData2 as $data) {?>
+                                        <option value="<?php  echo $data['dept']?>"><?php echo $data['dept'];?></option>
+                                    <?php }?>
                                 </select>
                             </div>
                         </div>

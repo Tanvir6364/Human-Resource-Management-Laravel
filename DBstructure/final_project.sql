@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2016 at 11:49 AM
+-- Generation Time: Dec 01, 2016 at 01:57 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -52,7 +52,9 @@ CREATE TABLE `department` (
 INSERT INTO `department` (`id`, `dept`) VALUES
 (1, 'Marketing'),
 (2, 'Administration'),
-(3, 'Head');
+(3, 'Head'),
+(4, ''),
+(5, 'dsfsfdsfsf');
 
 -- --------------------------------------------------------
 
@@ -133,7 +135,7 @@ CREATE TABLE `employee_certification` (
 
 CREATE TABLE `off_days` (
   `id` int(6) NOT NULL,
-  `days` varchar(10) DEFAULT NULL,
+  `date` varchar(10) DEFAULT NULL,
   `details` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -141,9 +143,11 @@ CREATE TABLE `off_days` (
 -- Dumping data for table `off_days`
 --
 
-INSERT INTO `off_days` (`id`, `days`, `details`) VALUES
+INSERT INTO `off_days` (`id`, `date`, `details`) VALUES
 (1, '10', 'sjkhfjk jfhsjkfh hfjkshf sjkfhsjkfh sfhskf sjkhfjk jfhsjkfh hfjkshf sjkfhsjkfh sfhskf '),
-(2, '06', 'sjkhfjk jfhsjkfh hfjkshf sjkfhsjkfh sfhskf sjkhfjk jfhsjkfh hfjkshf sjkfhsjkfh sfhskf ');
+(2, '06', 'sjkhfjk jfhsjkfh hfjkshf sjkfhsjkfh sfhskf sjkhfjk jfhsjkfh hfjkshf sjkfhsjkfh sfhskf '),
+(3, NULL, NULL),
+(4, '2016-12-14', 'ddddddd');
 
 -- --------------------------------------------------------
 
@@ -224,7 +228,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `employee`
 --
@@ -239,7 +243,7 @@ ALTER TABLE `employee_certification`
 -- AUTO_INCREMENT for table `off_days`
 --
 ALTER TABLE `off_days`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `salary_sheet`
 --

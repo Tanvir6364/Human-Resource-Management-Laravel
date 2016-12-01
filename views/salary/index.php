@@ -943,38 +943,33 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <div class="well well-sm">
-                        <h4>Please enter your book details.</h4>
+                        <h4>Please enter pay grade details.</h4>
                     </div>
                 </div>
 
                 <div class="modal-body">
                     <form id="rootwizard-2" method="post" action="store.php" class="form-wizard validate">
                         <div class="tab-content">
-                            <div class="tab-pane active" id="tab2-1">
+                            <div class="panel-body">
+                                <div class="form-group col-sm-6">
+                                    <label for="field-1" class="col-sm-4 control-label">Title</label>
 
-                                <div class="row">
-                                    <div class="panel-body">
-                                        <div class="form-group col-sm-6">
-                                            <label for="field-1" class="col-sm-4 control-label">Title</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="field-1" name="title" placeholder="Enter Grade Name">
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="field-1" class="col-sm-4 control-label"> Amount</label>
 
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="field-1" name="title" placeholder="Enter Grade Name">
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-sm-6">
-                                            <label for="field-1" class="col-sm-4 control-label"> Ammount</label>
-
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="field-1" name="ammount" placeholder="Ammount">
-                                            </div>
-                                        </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="field-1" name="amount" placeholder="Amount">
                                     </div>
                                 </div>
                             </div>
 
+
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success"><i class="fa fa-bookmark"></i> Save </button>
-                                <a type="" class="btn btn-info"><i class="fa fa-clock-o" aria-hidden="true"></i> Reset </a>
+                                <button type="submit" value="submit" class="btn btn-success"><i class="fa fa-bookmark"></i> Save </button>
                                 <button type="button" class="btn btn-orange pull-right" data-dismiss="modal"><i class="fa fa-arrow-down"></i> Close </button>
                             </div>
                         </div>

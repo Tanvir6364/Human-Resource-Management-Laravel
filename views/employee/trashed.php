@@ -313,6 +313,73 @@ $someData = $obj->trash_list("OBJ");
 
         <script type="text/javascript">
             jQuery( document ).ready( function( $ ) {
+                var $table1 = jQuery( '#table-1' );
+
+                // Initialize DataTable
+                $table1.DataTable( {
+                    "aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                    "bStateSave": true
+                });
+
+                // Initalize Select Dropdown after DataTables is created
+                $table1.closest( '.dataTables_wrapper' ).find( 'select' ).select2( {
+                    minimumResultsForSearch: -1
+                });
+            } );
+        </script>
+
+        <table class="table table-bordered datatable" id="table-1">
+            <thead>
+            <tr>
+                <th class="col-lg-1">Employee ID</th>
+                <th class="col-lg-3">Full Name</th>
+                <th class="col-lg-2">Phone Number</th>
+                <th class="col-lg-1">Role</th>
+                <th class="col-lg-2">Department</th>
+                <th class="col-lg-3">action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach($someData as $oneData){?>
+            <tr class="odd gradeX">
+                <td><?php echo $oneData->employee_id?></td>
+                <td><?php echo $oneData->first_name." ".$oneData->last_name?></td>
+                <td><?php echo $oneData->phone_number?></td>
+                <td><?php echo $oneData->role?></td>
+                <td><?php echo $oneData->dept?></td>
+                <td>
+                    <a href="recover.php?id=<?php echo $oneData->id?>" class="btn btn-success btn-md btn-icon icon-left" role="button">
+                        <i class="entypo-user"></i>
+                        ReActive
+                    </a>
+
+                    <a href="delete.php?id=<?php echo $oneData->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
+                        <i class="entypo-cancel"></i>
+                        Delete
+                    </a>
+                </td>
+                <?php }?>
+            </tr>
+
+
+            </tbody>
+            <tfoot>
+            <tr>
+                <th class="col-lg-1">Employee ID</th>
+                <th class="col-lg-3">Full Name</th>
+                <th class="col-lg-2">Phone Number</th>
+                <th class="col-lg-1">Role</th>
+                <th class="col-lg-2">Department</th>
+                <th class="col-lg-3">Action</th>
+            </tr>
+            </tfoot>
+        </table>
+
+
+
+        <!-------------------------------------------
+        <script type="text/javascript">
+            jQuery( document ).ready( function( $ ) {
                 var $table3 = jQuery("#table-3");
 
                 var table3 = $table3.DataTable( {
@@ -411,30 +478,7 @@ $someData = $obj->trash_list("OBJ");
             </tr>
             </tfoot>
         </table>
-
-
-        <table class="table">
-            <tr>
-                <td>
-                    <a href="javascript:;" onclick="jQuery('#modal-1').modal('show');" class="btn btn-success btn-lg btn-icon icon-left">
-                        <i class="entypo-list-add"></i>
-                        Add New Item
-                    </a>
-                </td>
-                <td>
-                    <a href="javascript:;" onclick="jQuery('').modal('show');" class="btn btn-orange btn-lg btn-icon icon-left">
-                        <i class="entypo-trash"></i>
-                        View Trash Items
-                    </a>
-                </td>
-                <td>
-                    <a href="javascript:;" onclick="jQuery('').modal('show');" class="btn btn-info btn-lg btn-icon icon-left">
-                        <i class="entypo-trash"></i>
-                        Download as Excel
-                    </a>
-                </td>
-            </tr>
-        </table>
+-->
 
 
     </div>

@@ -1,10 +1,10 @@
 <?php
 
 include_once("../../vendor/autoload.php");
-use App\Department\Department;
+use App\OffDays\OffDays;
 
-$Department = new Department();
-$Department->setData($_POST);
+$OffDays = new OffDays();
+$OffDays->setData($_POST);
 
 //var_dump($SalarySheet);die();
-$Department->store();
+$OffDays->store();

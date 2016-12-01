@@ -4,9 +4,12 @@ include('vendor/autoload.php');
 use App\Employee\Employee;
 use App\Message\Message;
 use App\Utility\Utility;
+
 $obj = new Employee();
-$count=$obj->countEmployee();
-$count1=$obj->countDept();
+$countEmployee=$obj->countEmployee();
+$countDept=$obj->countDept();
+$countSalaryGrade=$obj->countSlaryGrade();
+$countOffDays=$obj->countOffDays();
 
 //echo($count);die();
 
@@ -133,7 +136,7 @@ $count1=$obj->countDept();
 					</a>
 					<ul>
 						<li>
-							<a href="views/salary/salarysheet.php">
+							<a href="views/salary/index.php">
 								<span class="title">View Grade</span>
 							</a>
 						</li>
@@ -224,102 +227,58 @@ $count1=$obj->countDept();
 		
 		<div class="row">
 			<div class="col-sm-3 col-xs-6">
-		
-				<div class="tile-stats tile-red">
-					<div class="icon"><i class="entypo-users"></i></div>
+				<a href="views/employee">
+					<div class="tile-stats tile-red">
+						<div class="icon"><i class="entypo-users"></i></div>
 
-					<div class="num" data-start="0" data-end="<?php echo $count->count?>" data-postfix="" data-duration="1500" data-delay="600">0</div>
+						<div class="num" data-start="0" data-end="<?php echo $countEmployee->count?>" data-postfix="" data-duration="1500" data-delay="600">0</div>
 
-					<h3>Total Employee</h3>
-					<p>Click to Manage Employee</p>
-				</div>
-		
+						<h3>Total Employee</h3>
+						<p>Click to Manage Employee</p>
+					</div>
+				</a>
 			</div>
 		
 			<div class="col-sm-3 col-xs-6">
-		
-				<div class="tile-stats tile-green">
-					<div class="icon"><i class="entypo-chart-bar"></i></div>
-					<div class="num" data-start="0" data-end="<?php echo $count1->count?>" data-postfix="" data-duration="1500" data-delay="600">0</div>
-		
-					<h3>Total Department</h3>
-					<p>Click to Manage Department</p>
-				</div>
-		
+				<a href="views/department">
+					<div class="tile-stats tile-green">
+						<div class="icon"><i class="entypo-chart-bar"></i></div>
+						<div class="num" data-start="0" data-end="<?php echo $countDept->count?>" data-postfix="" data-duration="1500" data-delay="600">0</div>
+
+						<h3>Total Department</h3>
+						<p>Click to Manage Department</p>
+					</div>
+				</a>
 			</div>
 			
 			<div class="clear visible-xs"></div>
-		
+
 			<div class="col-sm-3 col-xs-6">
-		
-				<div class="tile-stats tile-aqua">
-					<div class="icon"><i class="entypo-basket"></i></div>
-					<div class="num" data-start="0" data-end="23" data-postfix="" data-duration="1500" data-delay="1200">0</div>
-		
-					<h3>Total Off Day</h3>
-					<p>Total off days of this month</p>
-				</div>
-		
-			</div>
-		
-			<div class="col-sm-3 col-xs-6">
-		
-				<div class="tile-stats tile-blue">
-					<div class="icon"><i class="entypo-briefcase"></i></div>
-					<div class="num" data-start="0" data-end="52" data-postfix="" data-duration="1500" data-delay="1800">0</div>
-		
-					<h3>Total Products</h3>
-					<p>Click to manage Products</p>
-				</div>
+				<a href="views/salary">
+					<div class="tile-stats tile-blue">
+						<div class="icon"><i class="entypo-briefcase"></i></div>
+						<div class="num" data-start="0" data-end="<?php echo $countSalaryGrade->count?>" data-postfix="" data-duration="1500" data-delay="1800">0</div>
+
+						<h3>Pay Grade</h3>
+						<p>Click to manage Pay grade</p>
+					</div>
+				</a>
 			</div>
 
 			<div class="col-sm-3 col-xs-6">
+				<a href="views/offdays">
+					<div class="tile-stats tile-aqua">
+						<div class="icon"><i class="entypo-basket"></i></div>
+						<div class="num" data-start="0" data-end="<?php echo $countOffDays->count?>" data-postfix="" data-duration="1500" data-delay="1200">0</div>
 
-				<div class="tile-stats tile-blue">
-					<div class="icon"><i class="entypo-briefcase"></i></div>
-					<div class="num" data-delay="1800" style="font-size: 35px;">Off days</div>
-
-					<h3>50</h3>
-					<p>Total off days of this month</p>
-				</div>
-
-			</div>
-
-			<div class="col-sm-3 col-xs-6">
-
-				<div class="tile-stats tile-blue">
-					<div class="icon"><i class="entypo-briefcase"></i></div>
-					<div class="num" data-delay="1800" style="font-size: 35px;">Absent Days</div>
-
-					<h3>50</h3>
-					<p>Total Absent days of this month</p>
-				</div>
+						<h3>Total Off Day</h3>
+						<p>Total off days of this month</p>
+					</div>
+				</a>
 
 			</div>
 
-			<div class="col-sm-3 col-xs-6">
 
-				<div class="tile-stats tile-blue">
-					<div class="icon"><i class="entypo-briefcase"></i></div>
-					<div class="num" data-delay="1800" style="font-size: 35px;">Leave Days</div>
-
-					<h3>50</h3>
-					<p>Total leave days of this month</p>
-				</div>
-
-			</div>
-
-			<div class="col-sm-3 col-xs-6">
-
-				<div class="tile-stats tile-blue">
-					<div class="icon"><i class="entypo-briefcase"></i></div>
-					<div class="num" data-delay="1800">Settings</div>
-
-					<h3>Active</h3>
-					<p>Click to Manage</p>
-				</div>
-
-			</div>
 		</div>
 
 		<br />

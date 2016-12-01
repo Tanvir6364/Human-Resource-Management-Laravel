@@ -11,9 +11,8 @@ use PDOException;
 class OffDays extends DB{
 
     public $id;
-    public $days;
+    public $date;
     public $details;
-
 
     public function __construct(){
         parent::__construct();
@@ -25,11 +24,10 @@ class OffDays extends DB{
 
             $this->id = $data['id'];
         }
-        if (array_key_exists('days', $data)) {
+        if (array_key_exists('date', $data)) {
 
-            $this->days = $data['days'];
+            $this->date = $data['date'];
         }
-
         if (array_key_exists('details', $data)) {
 
             $this->details = $data['details'];
@@ -38,9 +36,9 @@ class OffDays extends DB{
 
     //for adding item from create.php
     public function store(){
-        $arr = array($this->days,$this->details);
+        $arr = array($this->date,$this->details);
 
-        $sql="INSERT INTO `off_days` (`days`,`details`) VALUES (?,?);";
+        $sql="INSERT INTO `off_days` (`date`,`details`) VALUES (?,?);";
         $STH = $this->connection->prepare($sql);
         $messageme = $STH->execute($arr);
 
@@ -57,6 +55,13 @@ class OffDays extends DB{
     }//end of store
 
 
+    public function index(){
+
+        $STH = $this->connection->query('SELECT * from  off_days');
+        $STH->setFetchMode(PDO::FETCH_OBJ);
+        $arrAllData  = $STH->fetchAll();
+        return $arrAllData;
+    }
 
 }
 ?>

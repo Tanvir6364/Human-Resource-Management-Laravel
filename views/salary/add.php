@@ -133,7 +133,7 @@ $count1=$obj->countDept();
                     </a>
                     <ul>
                         <li>
-                            <a href="../../views/salary/salarysheet.php">
+                            <a href="index.php">
                                 <span class="title">View Grade</span>
                             </a>
                         </li>

@@ -180,9 +180,28 @@ class Employee extends DB
     //for adding item from create.php
     public function store(){
         $arr = array($this->first_name, $this->last_name, $this->birthday, $this->gender, $this->marital_status, $this->nationality,$this->nid, $this->profile_picture,$this->phone_number,$this->email,$this->address1,$this->address2,$this->country,$this->city,$this->post_code,$this->employee_id,$this->join_date,$this->role,$this->salary,$this->dept,$this->fb,$this->twitter,$this->linkedin,$this->googleplus);
+
+
        /* $sql = "insert into employee(first_name, last_name, birthday, gender, marital_status,nationality,nid,phone_number,email,address1,address2,country,post_code,employee_id,join_date,role,dept,salary,fb,twitter,linkedin,googleplus) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";*/
 
         $sql="INSERT INTO `employee` (`first_name`, `last_name`, `birthday`, `gender`, `marital_status`, `nationality`, `nid`, `profile_picture`, `phone_number`, `email`, `address1`, `address2`, `country`, `city`, `post_code`, `employee_id`, `join_date`, `role`, `salary`, `dept`, `fb`, `twitter`, `linkedin`, `googleplus`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+
+        $STH = $this->connection->prepare($sql);
+        $messageme = $STH->execute($arr);
+
+        if($messageme){
+            Message::message("<h1>dfdgdfgdfg<\h1>");
+        }
+        else{
+            Message::message("<h1>5353435<\h1>");
+        }
+
+        //Utility::redirect('../../../views/employee/add.php');
+
+
+        $arr = array($this->employee_id);
+
+        $sql="INSERT INTO `user` (`employee_id`) VALUES (?);";
         $STH = $this->connection->prepare($sql);
         $messageme = $STH->execute($arr);
 
@@ -365,13 +384,38 @@ class Employee extends DB
 
     public function countDept(){
 
-//        $sql="SELECT count(`id`) as count FROM `department` ";
-//        $STH=$this->connection->query($sql);
-//        $STH->setFetchMode(PDO::FETCH_OBJ);
-//
-//
-//        $arrOneData  = $STH->fetch();
-//        // var_dump($arrOneData);die();
-//        return $arrOneData;
+        $sql="SELECT count(`id`) as count FROM `department` ";
+        $STH=$this->connection->query($sql);
+        $STH->setFetchMode(PDO::FETCH_OBJ);
+
+
+        $arrOneData  = $STH->fetch();
+        // var_dump($arrOneData);die();
+        return $arrOneData;
     }
+
+    public function countSlaryGrade(){
+
+        $sql="SELECT count(`id`) as count FROM `salary_sheet` ";
+        $STH=$this->connection->query($sql);
+        $STH->setFetchMode(PDO::FETCH_OBJ);
+
+
+        $arrOneData  = $STH->fetch();
+        // var_dump($arrOneData);die();
+        return $arrOneData;
+    }
+
+    public function countOffDays(){
+
+        $sql="SELECT count(`id`) as count FROM `off_days` ";
+        $STH=$this->connection->query($sql);
+        $STH->setFetchMode(PDO::FETCH_OBJ);
+
+
+        $arrOneData  = $STH->fetch();
+        // var_dump($arrOneData);die();
+        return $arrOneData;
+    }
+
 }

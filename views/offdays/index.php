@@ -6,10 +6,8 @@ use App\Message\Message;
 use App\Utility\Utility;
 
 $objEmployee = new OffDays();
-$allData = $objEmployee->index();
-$allData1 = $objEmployee->();
-$recordSet = $objEmployee->index("OBJ");
-$recordSet1 = $objEmployee->department("OBJ");
+$allData1 = $objEmployee->index();
+
 
 ?>
 
@@ -862,7 +860,7 @@ $recordSet1 = $objEmployee->department("OBJ");
 
                     <!-- panel head -->
                     <div class="panel-heading">
-                        <div class="panel-title"><h2> Update Department Sheet</h2></div>
+                        <div class="panel-title"><h2> Update Off Days Sheet</h2></div>
 
                         <div class="panel-options">
                             <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
@@ -879,21 +877,18 @@ $recordSet1 = $objEmployee->department("OBJ");
                                 <thead>
                                 <tr>
                                     <th class="col-lg-1">ID</th>
-                                    <th class="col-lg-3">Department</th>
+                                    <th class="col-lg-3">Off Date</th>
+                                    <th class="col-lg-3">Details</th>
                                     <th class="col-lg-3">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php foreach($allData1 as $data){?>
                                 <tr class="odd gradeX">
-                                    <td><?php echo $data['id']?></td>
-                                    <td><?php echo $data['dept']?></td>
+                                    <td><?php echo $data->id?></td>
+                                    <td><?php echo $data->date?></td>
+                                    <td><?php echo $data->details?></td>
                                     <td>
-                                        <a href="update.php?id=<?php echo $allData->id?>" class="btn btn-success btn-md btn-icon icon-left" role="button">
-                                            <i class="entypo-user"></i>
-                                            Update
-                                        </a>
-
                                         <a href="delete.php?id=<?php echo $allData->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
                                             <i class="entypo-cancel"></i>
                                             Delete
@@ -906,8 +901,9 @@ $recordSet1 = $objEmployee->department("OBJ");
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th class="col-lg-1">Grade</th>
-                                    <th class="col-lg-3">Amount</th>
+                                    <th class="col-lg-1">ID</th>
+                                    <th class="col-lg-3">Off Date</th>
+                                    <th class="col-lg-3">Details</th>
                                     <th class="col-lg-3">Action</th>
                                 </tfoot>
                             </table>
@@ -952,15 +948,25 @@ $recordSet1 = $objEmployee->department("OBJ");
                         <div class="tab-content">
                             <div class="panel-body">
                                 <div class="form-group col-sm-12">
-                                    <label for="field-1" class="col-sm-4 control-label">Department Name</label>
+                                    <label for="field-1" class="col-sm-4 control-label">Date</label>
 
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="field-1" name="dept" placeholder="Enter Department Name">
+                                        <input type="date" class="form-control" id="field-1" name="date" placeholder="Enter Department Name">
                                     </div>
                                 </div>
 
                             </div>
 
+                            <div class="panel-body">
+                                <div class="form-group col-sm-12">
+                                    <label for="field-1" class="col-sm-4 control-label">Details</label>
+
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="field-1" name="details" placeholder="Enter Department Name">
+                                    </div>
+                                </div>
+
+                            </div>
 
                             <div class="form-group">
                                 <button type="submit" value="submit" class="btn btn-success"><i class="fa fa-bookmark"></i> Save </button>

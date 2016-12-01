@@ -8,8 +8,10 @@ use App\Utility\Utility;
 $objEmployee = new Employee();
 $allData = $objEmployee->index();
 $allData1 = $objEmployee->salarysheet();
+$allData2 = $objEmployee->department();
 $recordSet = $objEmployee->index("OBJ");
 $recordSet1 = $objEmployee->salarysheet("OBJ");
+$recordSet2 = $objEmployee->department("OBJ");
 
 ?>
 
@@ -1104,9 +1106,9 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                             <div class="col-sm-8">
                                 <select name="dept" class="selectboxit" data-first-option="false">
                                     <option>Select one</option>
-                                    <option value="Administration">Administration</option>
-                                    <option value="Sales">Sales</option>
-                                    <option value="Marketing">Marketing</option>
+                                    <?php foreach($allData2 as $data) {?>
+                                        <option value="<?php  echo $data['dept']?>"><?php echo $data['dept']?></option>
+                                    <?php }?>
                                 </select>
                             </div>
                         </div>
