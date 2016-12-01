@@ -13,8 +13,7 @@ if((isset($_FILES['image'])&& !empty($_FILES['image']['name']))){
     move_uploaded_file( $temporary_location,'../../resource/images/'.$image_name);
     $_POST['image']=$image_name;
 }
-$facebook = "http://".$_POST['facebook'];
-$_POST['facebook'] = $facebook;
+
 $Employee = new Employee();
 $Employee->setData($_POST);
 
