@@ -23,7 +23,7 @@ $someData = $obj->trash_list("OBJ");
 
     <link rel="icon" href="../../assets/img/favicon.ico">
 
-    <title>Trash List</title>
+    <title>Hold Employees | বৃত্ত</title>
 
     <link rel="stylesheet" href="../../assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
     <link rel="stylesheet" href="../../assets/css/font-icons/entypo/css/entypo.css">
@@ -64,7 +64,7 @@ $someData = $obj->trash_list("OBJ");
                 <!-- logo -->
                 <div class="logo">
                     <a href="../../index.php">
-                        <h1>Home</h1>
+                        <img src="../../assets/images/logo@2x.png" width="120" alt="" />
                     </a>
                 </div>
 
@@ -87,19 +87,49 @@ $someData = $obj->trash_list("OBJ");
 
 
             <ul id="main-menu" class="main-menu">
-                <li class="has-sub">
-                    <a href="#">
-                        <i class="fa fa-book"></i>
-                        <span class="title">Book Title</span>
+
+                <li class="opened has-sub">
+                    <a href="index.php">
+                        <i class="entypo-gauge"></i>
+                        <span class="title">Employees</span>
                     </a>
                     <ul>
                         <li>
-                            <a href="../BookTitle/create.php">
+                            <a href="index.php">
+                                <span class="title">View list</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="add.php">
                                 <span class="title">Add New</span>
                             </a>
                         </li>
                         <li>
-                            <a href="../BookTitle/index.php">
+                    </ul>
+                </li>
+
+                <li class="has-sub">
+                    <a href="index.php">
+                        <i class="entypo-gauge"></i>
+                        <span class="title">Salary Grades</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="../salary/index.php">
+                                <span class="title">View Grades</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="has-sub">
+                    <a href="index.php">
+                        <i class="entypo-gauge"></i>
+                        <span class="title">Departments</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="../../views/department/index.php">
                                 <span class="title">View All</span>
                             </a>
                         </li>
@@ -107,129 +137,65 @@ $someData = $obj->trash_list("OBJ");
                 </li>
 
                 <li class="has-sub">
-                    <a href="#">
-                        <i class="fa fa-birthday-cake"></i>
-                        <span class="title">Birth Day</span>
+                    <a href="index.php">
+                        <i class="entypo-gauge"></i>
+                        <span class="title">Vacations</span>
                     </a>
                     <ul>
                         <li>
-                            <a href="../Birthday/create.php">
-                                <span class="title">Add New</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../Birthday/index.php">
-                                <span class="title">View List</span>
+                            <a href="../../views/offdays/index.php">
+                                <span class="title">View All</span>
                             </a>
                         </li>
                     </ul>
                 </li>
+
                 <li class="has-sub">
-                    <a href="#">
-                        <i class="fa fa-envelope"></i>
-                        <span class="title">Email Addess</span>
+                    <a href="index.php">
+                        <i class="entypo-gauge"></i>
+                        <span class="title">Job Opening</span>
                     </a>
                     <ul>
                         <li>
-                            <a href="../Email/create.php">
-                                <span class="title">Add New</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../Email/index.php">
-                                <span class="title">View List</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="has-sub">
-                    <a href="#">
-                        <i class="fa fa-male"></i>
-                        <span class="title">Gender</span>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="../Gender/create.php">
-                                <span class="title">Add New</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../Gender/index.php">
-                                <span class="title">View List</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="has-sub">
-                    <a href="#">
-                        <i class="fa fa-camera"></i>
-                        <span class="title">Profile Picture</span>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="../ProfilePicture/create.php">
-                                <span class="title">Add New</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../ProfilePicture/index.php">
-                                <span class="title">View List</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="opened has-sub">
-                    <a href="#">
-                        <i class="fa fa-tree"></i>
-                        <span class="title">City Name</span>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="create.php">
-                                <span class="title">Add New</span>
-                            </a>
-                        </li>
-                        <li class="active">
                             <a href="index.php">
-                                <span class="title">View List</span>
+                                <span class="title">View All</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="title">Add New</span>
                             </a>
                         </li>
                     </ul>
                 </li>
+
                 <li class="has-sub">
-                    <a href="#">
-                        <i class="fa fa-play"></i>
-                        <span class="title">Hobbies</span>
+                    <a href="index.php">
+                        <i class="entypo-gauge"></i>
+                        <span class="title"> Resume </span>
                     </a>
                     <ul>
                         <li>
-                            <a href="../Hobbies/create.php">
-                                <span class="title">Add New</span>
+                            <a href="index.php">
+                                <span class="title">View All</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="../Hobbies/index.php">
-                                <span class="title">View List</span>
-                            </a>
-                        </li>
+
                     </ul>
                 </li>
+
                 <li class="has-sub">
-                    <a href="#">
-                        <i class="fa fa-sitemap"></i>
-                        <span class="title">Organization Summary</span>
+                    <a href="index.php">
+                        <i class="entypo-gauge"></i>
+                        <span class="title"> Job Seekers </span>
                     </a>
                     <ul>
                         <li>
-                            <a href="../OrganizationSummary/create.php">
-                                <span class="title">Add New</span>
+                            <a href="index.php">
+                                <span class="title">View All</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="../OrganizationSummary/index.php">
-                                <span class="title">View List</span>
-                            </a>
-                        </li>
+
                     </ul>
                 </li>
             </ul>

@@ -24,7 +24,7 @@ $singleData = $obj->view("obj");
 
 	<link rel="icon" href="../../assets/images/favicon.ico">
 
-	<title>Neon | Profile</title>
+	<title>Profile | বৃত্ত</title>
 
 	<link rel="stylesheet" href="../../assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
 	<link rel="stylesheet" href="../../assets/css/font-icons/entypo/css/entypo.css">
@@ -61,7 +61,7 @@ $singleData = $obj->view("obj");
 
 				<!-- logo -->
 				<div class="logo">
-					<a href="index.html">
+					<a href="../../index.php">
 						<img src="../../assets/images/logo@2x.png" width="120" alt="" />
 					</a>
 				</div>

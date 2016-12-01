@@ -22,7 +22,7 @@ $someData = $obj->index("OBJ");
 
     <link rel="icon" href="../../assets/img/favicon.ico">
 
-    <title>City Name List View | Atomic Project</title>
+    <title>Employee List | বৃত্ত</title>
 
     <link rel="stylesheet" href="../../assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
     <link rel="stylesheet" href="../../assets/css/font-icons/entypo/css/entypo.css">
@@ -86,19 +86,49 @@ $someData = $obj->index("OBJ");
 
 
             <ul id="main-menu" class="main-menu">
-                <li class="has-sub">
-                    <a href="#">
-                        <i class="fa fa-book"></i>
-                        <span class="title">Book Title</span>
+
+                <li class="opened has-sub">
+                    <a href="index.php">
+                        <i class="entypo-gauge"></i>
+                        <span class="title">Employees</span>
                     </a>
                     <ul>
+                        <li class="active">
+                            <a href="index.php">
+                                <span class="title">View list</span>
+                            </a>
+                        </li>
                         <li>
-                            <a href="../BookTitle/create.php">
+                            <a href="add.php">
                                 <span class="title">Add New</span>
                             </a>
                         </li>
                         <li>
-                            <a href="../BookTitle/index.php">
+                    </ul>
+                </li>
+
+                <li class="has-sub">
+                    <a href="index.php">
+                        <i class="entypo-gauge"></i>
+                        <span class="title">Salary Grades</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="../../views/salary/index.php">
+                                <span class="title">View Grades</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="has-sub">
+                    <a href="index.php">
+                        <i class="entypo-gauge"></i>
+                        <span class="title">Departments</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="../../views/department/index.php">
                                 <span class="title">View All</span>
                             </a>
                         </li>
@@ -106,129 +136,65 @@ $someData = $obj->index("OBJ");
                 </li>
 
                 <li class="has-sub">
-                    <a href="#">
-                        <i class="fa fa-birthday-cake"></i>
-                        <span class="title">Birth Day</span>
+                    <a href="index.php">
+                        <i class="entypo-gauge"></i>
+                        <span class="title">Vacations</span>
                     </a>
                     <ul>
                         <li>
-                            <a href="../Birthday/create.php">
-                                <span class="title">Add New</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../Birthday/index.php">
-                                <span class="title">View List</span>
+                            <a href="../../views/offdays/index.php">
+                                <span class="title">View All</span>
                             </a>
                         </li>
                     </ul>
                 </li>
+
                 <li class="has-sub">
-                    <a href="#">
-                        <i class="fa fa-envelope"></i>
-                        <span class="title">Email Addess</span>
+                    <a href="index.php">
+                        <i class="entypo-gauge"></i>
+                        <span class="title">Job Opening</span>
                     </a>
                     <ul>
                         <li>
-                            <a href="../Email/create.php">
-                                <span class="title">Add New</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../Email/index.php">
-                                <span class="title">View List</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="has-sub">
-                    <a href="#">
-                        <i class="fa fa-male"></i>
-                        <span class="title">Gender</span>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="../Gender/create.php">
-                                <span class="title">Add New</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../Gender/index.php">
-                                <span class="title">View List</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="has-sub">
-                    <a href="#">
-                        <i class="fa fa-camera"></i>
-                        <span class="title">Profile Picture</span>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="../ProfilePicture/create.php">
-                                <span class="title">Add New</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../ProfilePicture/index.php">
-                                <span class="title">View List</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="opened has-sub">
-                    <a href="#">
-                        <i class="fa fa-tree"></i>
-                        <span class="title">City Name</span>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="create.php">
-                                <span class="title">Add New</span>
-                            </a>
-                        </li>
-                        <li class="active">
                             <a href="index.php">
-                                <span class="title">View List</span>
+                                <span class="title">View All</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="title">Add New</span>
                             </a>
                         </li>
                     </ul>
                 </li>
+
                 <li class="has-sub">
-                    <a href="#">
-                        <i class="fa fa-play"></i>
-                        <span class="title">Hobbies</span>
+                    <a href="index.php">
+                        <i class="entypo-gauge"></i>
+                        <span class="title"> Resume </span>
                     </a>
                     <ul>
                         <li>
-                            <a href="../Hobbies/create.php">
-                                <span class="title">Add New</span>
+                            <a href="index.php">
+                                <span class="title">View All</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="../Hobbies/index.php">
-                                <span class="title">View List</span>
-                            </a>
-                        </li>
+
                     </ul>
                 </li>
+
                 <li class="has-sub">
-                    <a href="#">
-                        <i class="fa fa-sitemap"></i>
-                        <span class="title">Organization Summary</span>
+                    <a href="index.php">
+                        <i class="entypo-gauge"></i>
+                        <span class="title"> Job Seekers </span>
                     </a>
                     <ul>
                         <li>
-                            <a href="../OrganizationSummary/create.php">
-                                <span class="title">Add New</span>
+                            <a href="index.php">
+                                <span class="title">View All</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="../OrganizationSummary/index.php">
-                                <span class="title">View List</span>
-                            </a>
-                        </li>
+
                     </ul>
                 </li>
             </ul>
@@ -353,9 +319,11 @@ $someData = $obj->index("OBJ");
                     <h2>Employee List</h2>
                 </td>
                 <td width="450">
+                    <!--
                     <a href="pdf.php" class="btn btn-primary" role="button">Download as PDF</a>
                     <a href="xl.php" class="btn btn-primary" role="button">Download as XL</a>
                     <a href="email.php?list=1" class="btn btn-primary" role="button">Email to friend</a>
+                    -->
                 </td>
             </tr>
         </table>

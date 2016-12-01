@@ -30,7 +30,7 @@ $countOffDays=$obj->countOffDays();
 
 	<link rel="icon" href="assets/images/favicon.ico">
 
-	<title>Neon | Dashboard</title>
+	<title>Home | বৃত্ত</title>
 
 	<link rel="stylesheet" href="assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
 	<link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
@@ -113,6 +113,48 @@ $countOffDays=$obj->countOffDays();
 				<li class="has-sub">
 					<a href="index.php">
 						<i class="entypo-gauge"></i>
+						<span class="title">Salary Grades</span>
+					</a>
+					<ul>
+						<li>
+							<a href="views/salary/index.php">
+								<span class="title">View Grades</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<li class="has-sub">
+					<a href="index.php">
+						<i class="entypo-gauge"></i>
+						<span class="title">Departments</span>
+					</a>
+					<ul>
+						<li>
+							<a href="views/department/index.php">
+								<span class="title">View All</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<li class="has-sub">
+					<a href="index.php">
+						<i class="entypo-gauge"></i>
+						<span class="title">Vacations</span>
+					</a>
+					<ul>
+						<li>
+							<a href="views/offdays/index.php">
+								<span class="title">View All</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<li class="has-sub">
+					<a href="index.php">
+						<i class="entypo-gauge"></i>
 						<span class="title">Job Opening</span>
 					</a>
 					<ul>
@@ -122,26 +164,7 @@ $countOffDays=$obj->countOffDays();
 							</a>
 						</li>
 						<li>
-							<a href="dashboard-2.html">
-								<span class="title">Add New</span>
-							</a>
-						</li>
-					</ul>
-				</li>
-
-				<li class="has-sub">
-					<a href="index.php">
-						<i class="entypo-gauge"></i>
-						<span class="title">Salary</span>
-					</a>
-					<ul>
-						<li>
-							<a href="views/salary/index.php">
-								<span class="title">View Grade</span>
-							</a>
-						</li>
-						<li>
-							<a href="dashboard-2.html">
+							<a href="">
 								<span class="title">Add New</span>
 							</a>
 						</li>

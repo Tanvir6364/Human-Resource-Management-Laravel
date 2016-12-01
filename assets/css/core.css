@@ -8860,6 +8860,7 @@ blockquote.blockquote-danger small strong {
   border: 1px solid #ebebeb;
   padding: 6px 10px;
   outline: 0;
+  width: 300px;
 }
 .dataTables_wrapper > div.dataTables_filter {
   padding-top: 15px;
