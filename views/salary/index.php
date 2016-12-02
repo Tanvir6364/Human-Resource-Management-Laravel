@@ -1,15 +1,12 @@
 <?php
 require_once("../../vendor/autoload.php");
 session_start();
-use App\Employee\Employee;
+use App\SalarySheet\SalarySheet;
 use App\Message\Message;
 use App\Utility\Utility;
 
-$objEmployee = new Employee();
+$objEmployee = new SalarySheet();
 $allData = $objEmployee->index();
-$allData1 = $objEmployee->salarysheet();
-$recordSet = $objEmployee->index("OBJ");
-$recordSet1 = $objEmployee->salarysheet("OBJ");
 
 ?>
 
@@ -345,7 +342,7 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
             </a>
         </div>
         <!--personal information starts here-->
-        <form role="form" action="../employees/store.php" method="post" enctype="multipart/form-data" class="form-horizontal form-groups-bordered">
+        <form role="form" action="" method="post" enctype="multipart/form-data" class="form-horizontal form-groups-bordered">
             <div class="col-md-8 col-sm-offset-2">
                 <div class="panel panel-gradient" data-collapsed="0">
 
@@ -373,7 +370,7 @@ $recordSet1 = $objEmployee->salarysheet("OBJ");
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php foreach($allData1 as $data){?>
+                                <?php foreach($allData as $data){?>
                                 <tr class="odd gradeX">
                                     <td><?php echo $data['title']?></td>
                                     <td><?php echo $data['amount']?></td>

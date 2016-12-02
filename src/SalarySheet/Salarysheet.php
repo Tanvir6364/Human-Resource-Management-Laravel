@@ -34,13 +34,25 @@ class SalarySheet extends DB{
             $this->amount = $data['amount'];
         }
     }
-    public function index(){
+
+
+    public function index($fetchMode="ASSOC"){
 
         $STH = $this->connection->query('SELECT * from salary_sheet');
-        $STH->setFetchMode(PDO::FETCH_OBJ);
+
+
+        $fetchMode = strtoupper($fetchMode);
+        if(substr_count($fetchMode, "OBJ")>0)   $STH->setFetchMode(PDO::FETCH_OBJ);
+        else               $STH->setFetchMode(PDO::FETCH_ASSOC);
+
         $arrAllData  = $STH->fetchAll();
         return $arrAllData;
+
     }
+
+
+
+
     //for adding item from create.php
     public function store(){
         $arr = array($this->title, $this->amount);
@@ -96,9 +108,9 @@ class SalarySheet extends DB{
     }
     public function update(){
 
-        $arr = array($this->title,$this->amount);
+        $arr = array($this->title, $this->amount);
 
-        $sql = "UPDATE `salary_sheet` SET `dept` = ? WHERE `id` =".$this->id;
+        $sql = "UPDATE `salary_sheet` SET `title` = '?', `amount` = '?' WHERE `salary_sheet`.`id`=" .$this->id;
 
         $STH = $this->connection->prepare($sql);
 

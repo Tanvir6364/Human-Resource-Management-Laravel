@@ -4,10 +4,12 @@ use App\Employee\Employee;
 use App\Message\Message;
 use App\Utility\Utility;
 
+//var_dump($_GET);die();
+
 $obj = new Employee();
 $obj->setData($_GET);
 $singleData = $obj->view("obj");
-//var_dump($obj);die();
+
 ?>
 
 

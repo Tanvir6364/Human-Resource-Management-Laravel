@@ -542,15 +542,7 @@ $recordSet2 = $objEmployee->department("OBJ");
     
                     <!-- panel body -->
                     <div class="panel-body">
-                        <div class="panel-body">
-                            <div class="form-group col-sm-8">
-                                <label for="field-1" class="col-sm-5 control-label">Employee ID</label>
-    
-                                <div class="col-sm-7">
-                                    <input type="text" name="employee_id" class="form-control" id="field-1" placeholder="Employee ID">
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="col-sm-6">
                             <div class="panel-body">
                                 <div class="form-group col-sm-12">
@@ -603,10 +595,50 @@ $recordSet2 = $objEmployee->department("OBJ");
                         </div>
                     </div>
                 </div>
+            </div><!---Job information ends here-->
+
+
+            <!--login information starts hee-->
+            <div class="col-md-12">
+                <div class="panel panel-gradient" data-collapsed="0">
+
+                    <!-- panel head -->
+                    <div class="panel-heading">
+                        <div class="panel-title"><h2>Employee Login Information</h2></div>
+
+                        <div class="panel-options">
+                            <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- panel body -->
+                    <div class="panel-body">
+                        <div class="panel-body">
+                            <div class="form-group col-sm-8">
+                                <label for="field-1" class="col-sm-5 control-label">Employee ID</label>
+
+                                <div class="col-sm-7">
+                                    <input type="text" name="employee_id" class="form-control" id="field-1" placeholder="Employee ID">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="form-group col-sm-8">
+                                <label for="field-1" class="col-sm-5 control-label">password</label>
+
+                                <div class="col-sm-7">
+                                    <input type="password" name="password" class="form-control" id="field-1" placeholder="Password for login">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-    
-            <!---Job information ends here-->
-    
+
+            <!---login information ends here-->
+
+
             <!--social information starts hee-->
             <div class="col-md-12">
                 <div class="panel panel-gradient" data-collapsed="0">

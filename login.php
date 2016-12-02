@@ -1,3 +1,11 @@
+<?php
+include_once('vendor/autoload.php');
+
+if(!isset($_SESSION) )session_start();
+use App\Message\Message;
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,9 +44,9 @@
 <body class="page-body login-page login-form-fall" data-url="http://neon.dev">
 
 
-<!-- This is needed when you send requests via Ajax -->
+<!-- This is needed when you send requests via Ajax-->
 <script type="text/javascript">
-var baseurl = '';
+var baseurl = 'views/User/Authentication/login.php';
 </script>
 
 <div class="login-container">
@@ -75,7 +83,7 @@ var baseurl = '';
 				<p>Enter correct login username and password.</p>
 			</div>
 			
-			<form method="post" role="form" id="form_login">
+			<form action="views/User/Authentication/login.php" method="post" role="form" id="">
 				
 				<div class="form-group">
 					
@@ -84,7 +92,7 @@ var baseurl = '';
 							<i class="entypo-user"></i>
 						</div>
 						
-						<input type="text" class="form-control" name="username" id="username" placeholder="Username" autocomplete="off" />
+						<input type="email" class="form-control" name="email" id="email" placeholder="email" autocomplete="off" />
 					</div>
 					
 				</div>
@@ -138,7 +146,7 @@ var baseurl = '';
 			
 			<div class="login-bottom-links">
 
-				<a href="register.php" class="link">
+				<a href="none.php" class="link">
 					<i class="entypo-lock"></i>
 					Create an account
 				</a>

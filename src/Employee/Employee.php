@@ -15,7 +15,6 @@ class Employee extends DB
     public $birthday;
     public $gender;
     public $marital_status;
-
     public $nationality;
     public $nid;
     public $profile_picture;
@@ -36,11 +35,11 @@ class Employee extends DB
     public $linkedin;
     public $googleplus;
 
-
     public $status;
     public $salary_grade;
     public $salary_ammount;
-
+    public $password;
+    public $id_token;
 
     public function __construct()
     {
@@ -173,18 +172,25 @@ class Employee extends DB
 
         }
 
+        if (array_key_exists('password', $data)) {
+
+            $this->password = $data['password'];
+
+        }
+
+
 
     }
 
 
     //for adding item from create.php
     public function store(){
-        $arr = array($this->first_name, $this->last_name, $this->birthday, $this->gender, $this->marital_status, $this->nationality,$this->nid, $this->profile_picture,$this->phone_number,$this->email,$this->address1,$this->address2,$this->country,$this->city,$this->post_code,$this->employee_id,$this->join_date,$this->role,$this->salary,$this->dept,$this->fb,$this->twitter,$this->linkedin,$this->googleplus);
+        $arr = array($this->first_name, $this->last_name, $this->birthday, $this->gender, $this->marital_status, $this->nationality,$this->nid, $this->profile_picture,$this->phone_number,$this->email,$this->address1,$this->address2,$this->country,$this->city,$this->post_code,$this->employee_id,$this->join_date,$this->role,$this->salary,$this->dept,$this->fb,$this->twitter,$this->linkedin,$this->googleplus,$this->password);
 
 
        /* $sql = "insert into employee(first_name, last_name, birthday, gender, marital_status,nationality,nid,phone_number,email,address1,address2,country,post_code,employee_id,join_date,role,dept,salary,fb,twitter,linkedin,googleplus) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";*/
 
-        $sql="INSERT INTO `employee` (`first_name`, `last_name`, `birthday`, `gender`, `marital_status`, `nationality`, `nid`, `profile_picture`, `phone_number`, `email`, `address1`, `address2`, `country`, `city`, `post_code`, `employee_id`, `join_date`, `role`, `salary`, `dept`, `fb`, `twitter`, `linkedin`, `googleplus`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+        $sql="INSERT INTO `users` (`first_name`, `last_name`, `birthday`, `gender`, `marital_status`, `nationality`, `nid`, `profile_picture`, `phone_number`, `email`, `address1`, `address2`, `country`, `city`, `post_code`, `employee_id`, `join_date`, `role`, `salary`, `dept`, `fb`, `twitter`, `linkedin`, `googleplus`, `password`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
         $STH = $this->connection->prepare($sql);
         $messageme = $STH->execute($arr);
@@ -220,7 +226,7 @@ class Employee extends DB
 
     public function index($fetchMode="ASSOC"){
 
-        $STH = $this->connection->query('SELECT * from employee where is_delete=1');
+        $STH = $this->connection->query('SELECT * from users where is_delete=1');
 
 
         $fetchMode = strtoupper($fetchMode);
@@ -263,7 +269,7 @@ class Employee extends DB
 
     public function view($fetchMode="ASSOC"){
         // $fetchMode = strtoupper($fetchMode);
-        $STH = $this->connection->query('SELECT * from employee where id='.$this->id);
+        $STH = $this->connection->query('SELECT * from users where id='.$this->id);
 
         $fetchMode = strtoupper($fetchMode);
         if(substr_count($fetchMode, "OBJ")>0)
@@ -281,7 +287,7 @@ class Employee extends DB
 
     $arr = array($this->first_name, $this->last_name, $this->birthday, $this->gender, $this->marital_status, $this->nationality,$this->nid, $this->profile_picture,$this->phone_number,$this->email,$this->address1,$this->address2,$this->country,$this->city,$this->post_code,$this->employee_id,$this->join_date,$this->role,$this->salary,$this->dept,$this->fb,$this->twitter,$this->linkedin,$this->googleplus);
 
-        $sql = "UPDATE `employee` SET `first_name` = ?, `last_name` = ?, `birthday` = ?, `gender` = ?, `marital_status` = ?, `nationality` = ?, `nid` = ?, `profile_picture` = ?, `phone_number` = ?, `email` = ?, `address1` = ?, `address2` = ?, `country` = ?, `city` = ?, `post_code` = ?, `employee_id` = ?, `join_date` = ?, `role` = ?, `salary` = ?, `dept` = ?, `fb` = ?, `twitter` = ?, `linkedin` = ?, `googleplus` = ? WHERE `employee`.`id` =".$this->id;
+        $sql = "UPDATE `users` SET `first_name` = ?, `last_name` = ?, `birthday` = ?, `gender` = ?, `marital_status` = ?, `nationality` = ?, `nid` = ?, `profile_picture` = ?, `phone_number` = ?, `email` = ?, `address1` = ?, `address2` = ?, `country` = ?, `city` = ?, `post_code` = ?, `employee_id` = ?, `join_date` = ?, `role` = ?, `salary` = ?, `dept` = ?, `fb` = ?, `twitter` = ?, `linkedin` = ?, `googleplus` = ? WHERE `employee`.`id` =".$this->id;
 
         $STH = $this->connection->prepare($sql);
 
@@ -300,7 +306,7 @@ class Employee extends DB
     }
     public function delete(){
 
-        $sql = "DELETE FROM employee WHERE id =".$this->id;
+        $sql = "DELETE FROM users WHERE id =".$this->id;
 
         $STH = $this->connection->prepare($sql);
 
@@ -318,7 +324,7 @@ class Employee extends DB
     }
 
     public function trash(){
-        $query="UPDATE employee SET is_delete=:true where id=:id";
+        $query="UPDATE users SET is_delete=:true where id=:id";
         $STH = $this->connection->prepare($query);
 
         $result=$STH->execute(
@@ -339,7 +345,7 @@ class Employee extends DB
     public function trash_list($Mode="ASSOC"){
         $Mode=strtoupper($Mode);
 
-        $STH = $this->connection->query('SELECT * from employee WHERE is_delete=0');
+        $STH = $this->connection->query('SELECT * from users WHERE is_delete=0');
 
 
         if($Mode=="OBJ")   $STH->setFetchMode(PDO::FETCH_OBJ);
@@ -351,7 +357,7 @@ class Employee extends DB
     }
 
     public function restore(){
-        $query="UPDATE employee SET is_delete=:true where id=:id";
+        $query="UPDATE users SET is_delete=:true where id=:id";
         $STH = $this->connection->prepare($query);
 
         $result=$STH->execute(
@@ -372,7 +378,7 @@ class Employee extends DB
 
     public function countEmployee(){
 
-        $sql="SELECT count(`id`) as count FROM `employee` ";
+        $sql="SELECT count(`id`) as count FROM `users` ";
       $STH=$this->connection->query($sql);
         $STH->setFetchMode(PDO::FETCH_OBJ);
       
@@ -417,5 +423,7 @@ class Employee extends DB
         // var_dump($arrOneData);die();
         return $arrOneData;
     }
+
+
 
 }

@@ -1,24 +1,15 @@
 <?php
-
-include('../../vendor/autoload.php');
+require_once("../../vendor/autoload.php");
+session_start();
 use App\SalarySheet\SalarySheet;
-use App\Employee\Employee;
 use App\Message\Message;
 use App\Utility\Utility;
 
-$objEmployee = new Employee();
-$objEmployee->setData($_GET);
-$singleData1 = $objEmployee->view("obj");
-$objSalary = new SalarySheet();
-$data = $objSalary->index();
-$objSalary->setData($_GET);
-$singleData=$objSalary->view("obj");
-$allData2 = $objEmployee->department();
-$recordSet2 = $objEmployee->department("OBJ");
+$objSalarySheet = new SalarySheet();
 
-//echo($count);die();
+$objSalarySheet->setData($_GET);
 
-
+$singleData = $objSalarySheet->view("obj");
 
 ?>
 
@@ -238,14 +229,14 @@ $recordSet2 = $objEmployee->department("OBJ");
                         <label for="field-1" class="col-sm-4 control-label">Grade</label>
 
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="field-1" name="title" value="<?php echo $singleData->title;?>" placeholder="Enter Grade Name">
+                            <input type="text" class="form-control" id="field-1" name="title" value="<?php echo $singleData->title;?>">
                         </div>
                     </div>
                     <div class="form-group col-sm-6">
                         <label for="field-1" class="col-sm-4 control-label"> Amount</label>
 
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="field-1" name="amount" value="<?php echo $singleData->amount;?>" placeholder="Amount">
+                            <input type="text" class="form-control" id="field-1" name="amount" value="<?php echo $singleData->amount;?>">
                         </div>
                     </div>
                 </div>

@@ -1,11 +1,27 @@
 <?php
+if(!isset($_SESSION) )session_start();
+
 include('../../vendor/autoload.php');
 use App\Employee\Employee;
+use App\User\Auth;
 use App\Message\Message;
 use App\Utility\Utility;
 $obj = new Employee();
-$someData = $obj->index("OBJ");
+$obj->setData($_SESSION);
+$someData = $obj->index("obj");
 
+
+//$obj= new Employee();
+
+//$singleUser = $obj->view("obj");
+
+$auth= new Auth();
+$status = $auth->prepare($_SESSION)->logged_in();
+var_dump($_SESSION);die();
+if(!$status) {
+    Utility::redirect('../../login.php');
+    return;
+}
 
 ?>
 
@@ -214,45 +230,12 @@ $someData = $obj->index("OBJ");
                     <!-- Profile Info -->
                     <li class="profile-info dropdown"><!-- add class "pull-right" if you want to place this from right -->
 
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="../../assets/images/thumb-1@2x.png" alt="" class="img-circle" width="44" />
                             John Henderson
                         </a>
 
-                        <ul class="dropdown-menu">
 
-                            <!-- Reverse Caret -->
-                            <li class="caret"></li>
-
-                            <!-- Profile sub-links -->
-                            <li>
-                                <a href="extra-timeline.html">
-                                    <i class="entypo-user"></i>
-                                    Edit Profile
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="mailbox.html">
-                                    <i class="entypo-mail"></i>
-                                    Inbox
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="extra-calendar.html">
-                                    <i class="entypo-calendar"></i>
-                                    Calendar
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    <i class="entypo-clipboard"></i>
-                                    Tasks
-                                </a>
-                            </li>
-                        </ul>
                     </li>
 
                 </ul>
@@ -266,7 +249,7 @@ $someData = $obj->index("OBJ");
                 <ul class="list-inline links-list pull-right">
                     <li class="sep"></li>
                     <li>
-                        <a href="extra-login.html">
+                        <a href="../User/Authentication/logout.php">
                             Log Out <i class="entypo-logout right"></i>
                         </a>
                     </li>

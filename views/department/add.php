@@ -2,13 +2,13 @@
 
 include('../../vendor/autoload.php');
 use App\Employee\Employee;
+use App\User\Auth;
 use App\Message\Message;
 use App\Utility\Utility;
 $obj = new Employee();
 $count=$obj->countEmployee();
 $count1=$obj->countDept();
 
-//echo($count);die();
 
 
 
