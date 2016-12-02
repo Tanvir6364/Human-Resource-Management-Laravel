@@ -7,7 +7,10 @@ use App\Employee\Employee;
 use App\User\Auth;
 use App\Message\Message;
 use App\Utility\Utility;
+use App\Admin\Admin;
 
+if(!isset( $_SESSION)) session_start();
+            echo Message::message();
 $obj = new Employee();
 $obj->setData($_SESSION);
 $someData = $obj->index("obj");
@@ -19,6 +22,11 @@ $someData = $obj->index("obj");
 
 $auth= new Auth();
 $status = $auth->prepare($_SESSION)->logged_in();
+
+$objLogged = new Admin();
+$objLogged->setData($_SESSION);
+$loggedData = $objLogged->view();
+
 if(!$status) {
     Utility::redirect('../../login.php');
     return;
@@ -80,7 +88,7 @@ if(!$status) {
                 <!-- logo -->
                 <div class="logo">
                     <a href="../../index.php">
-                        <h1>Home</h1>
+                        <img src="../../assets/images/logo@2x.png" width="120" alt="" />
                     </a>
                 </div>
 
@@ -232,8 +240,8 @@ if(!$status) {
                     <li class="profile-info dropdown"><!-- add class "pull-right" if you want to place this from right -->
 
                         <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="../../assets/images/thumb-1@2x.png" alt="" class="img-circle" width="44" />
-                            John Henderson
+                            <img src="../../resource/images/<?php echo $loggedData->profile_picture;?>" alt="" class="img-circle" width="44" />
+                            <a href="profile.php?id=<?php echo $loggedData->id?>"><?php echo $loggedData->first_name." ".$loggedData->last_name;?></a>
                         </a>
 
 
@@ -258,6 +266,81 @@ if(!$status) {
             </div>
         </div>
         <hr/>
+
+
+
+        <script type="text/javascript">
+            jQuery( document ).ready( function( $ ) {
+                var $table4 = jQuery( "#table-4" );
+
+                $table4.DataTable( {
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copyHtml5',
+                        'excelHtml5',
+                        'csvHtml5',
+                        'pdfHtml5'
+                    ]
+                } );
+            } );
+        </script>
+
+        <table class="table table-bordered datatable" id="table-4">
+            <thead>
+            <tr>
+                <th class="col-lg-1">Employee ID</th>
+                <th class="col-lg-3">Full Name</th>
+                <th class="col-lg-2">Phone Number</th>
+                <th class="col-lg-1">Role</th>
+                <th class="col-lg-2">Department</th>
+                <th class="col-lg-3">action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach($someData as $oneData){?>
+            <tr class="odd gradeX">
+                <td><?php echo $oneData->employee_id?></td>
+                <td><?php echo $oneData->first_name." ".$oneData->last_name?></td>
+                <td><?php echo $oneData->phone_number?></td>
+                <td><?php echo $oneData->role?></td>
+                <td><?php echo $oneData->dept?></td>
+                <td>
+                    <a href="profile.php?id=<?php echo $oneData->id?>" class="btn btn-success btn-md btn-icon icon-left" role="button">
+                        <i class="entypo-user"></i>
+                        View
+                    </a>
+
+                    <a href="trash.php?id=<?php echo $oneData->id?>" class="btn btn-orange btn-md btn-icon icon-left" role="button">
+                        <i class="entypo-trash"></i>
+                        Trash
+                    </a>
+                    <a href="delete.php?id=<?php echo $oneData->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
+                        <i class="entypo-cancel"></i>
+                        Delete
+                    </a>
+                </td>
+                <?php }?>
+            </tr>
+
+            </tbody>
+            <tfoot>
+            <tr>
+                <th class="col-lg-1">Employee ID</th>
+                <th class="col-lg-3">Full Name</th>
+                <th class="col-lg-2">Phone Number</th>
+                <th class="col-lg-1">Role</th>
+                <th class="col-lg-2">Department</th>
+                <th class="col-lg-3">action</th>
+            </tr>
+            </tfoot>
+        </table>
+
+
+
+
+
+
+
 
 <!--
         <script type="text/javascript">
@@ -311,7 +394,7 @@ if(!$status) {
                 </td>
             </tr>
         </table>
-
+<!--
         <script type="text/javascript">
             jQuery( document ).ready( function( $ ) {
                 var $table1 = jQuery( '#table-1' );
@@ -379,7 +462,7 @@ if(!$status) {
             </tr>
             </tfoot>
         </table>
-
+-->
       <!--  <table class="table table-bordered datatable" id="table-3">
             <thead>
             <tr class="replace-inputs">
@@ -468,7 +551,7 @@ if(!$status) {
 <script src="../../assets/js/bootstrap.js"></script>
 <script src="../../assets/js/joinable.js"></script>
 <script src="../../assets/js/resizeable.js"></script>
-<script src="../../assets/js/atomic-api.js"></script>
+<script src="../../assets/js/sabuj-api.js"></script>
 
 
 
@@ -482,3 +565,6 @@ if(!$status) {
 
 </body>
 </html>
+<script>
+    $('#message').show().delay(1200).fadeOut();
+</script>

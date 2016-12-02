@@ -6,6 +6,7 @@ use App\Employee\Employee;
 use App\User\Auth;
 use App\Message\Message;
 use App\Utility\Utility;
+use App\Admin\Admin;
 
 $obj = new Employee();
 $obj->setData($_SESSION);
@@ -15,7 +16,9 @@ $countSalaryGrade=$obj->countSlaryGrade();
 $countOffDays=$obj->countOffDays();
 
 //echo($count);die();
-
+$objLogged = new Admin();
+$objLogged->setData($_SESSION);
+$loggedData = $objLogged->view();
 $auth= new Auth();
 $status = $auth->prepare($_SESSION)->logged_in();
 if(!$status) {
@@ -313,136 +316,17 @@ if(!$status) {
 		</div>
 
 		<br />
-		
-		<div class="row">
-			<div class="col-sm-12">
-		
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<div class="panel-title">Top seller Vendors Profile</div>
-		
-						<div class="panel-options">
-							<a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
-							<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
-							<a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
-							<a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
-						</div>
-					</div>
-		
-					<table class="table table-bordered table-responsive">
-						<thead>
-							<tr>
-								<th>SL No.</th>
-								<th>Full Name</th>
-								<th>Phone Number</th>
-								<th>Email Address</th>
-								<th>City</th>
-								<th>Total Sale</th>
+<div class="row">
+	<div class="col-lg-12">
+		<h1 style="text-align: center">ABC Company</h1>
+		<p style="text-align: center">sdfsfsfsf fjskhf kjhfjksf ksdf kdsfh skf dsfkhdsfkh skh fkfh fkshfdskjf ds. sdfsfsfsf fjskhf kjhfjksf ksdf kdsfh skf dsfkhdsfkh skh fkfh fkshfdskjf ds. sdfsfsfsf fjskhf kjhfjksf ksdf kdsfh skf dsfkhdsfkh skh fkfh fkshfdskjf ds. sdfsfsfsf fjskhf kjhfjksf ksdf kdsfh skf dsfkhdsfkh skh fkfh fkshfdskjf ds. </p>
+		<p style="text-align: center">sdfsfsfsf fjskhf kjhfjksf ksdf kdsfh skf dsfkhdsfkh skh fkfh fkshfdskjf ds. sdfsfsfsf fjskhf kjhfjksf ksdf kdsfh skf dsfkhdsfkh skh fkfh fkshfdskjf ds. sdfsfsfsf fjskhf kjhfjksf ksdf kdsfh skf dsfkhdsfkh skh fkfh fkshfdskjf ds. sdfsfsfsf fjskhf kjhfjksf ksdf kdsfh skf dsfkhdsfkh skh fkfh fkshfdskjf ds. </p>
+			<p style="text-align: center"> sdfsfsfsf fjskhf kjhfjksf ksdf kdsfh skf dsfkhdsfkh skh fkfh fkshfdskjf ds. sdfsfsfsf fjskhf kjhfjksf ksdf kdsfh skf dsfkhdsfkh skh fkfh fkshfdskjf ds. sdfsfsfsf fjskhf kjhfjksf ksdf kdsfh skf dsfkhdsfkh skh fkfh fkshfdskjf ds. sdfsfsfsf fjskhf kjhfjksf ksdf kdsfh skf dsfkhdsfkh skh fkfh fkshfdskjf ds. sdfsfsfsf fjskhf kjhfjksf ksdf kdsfh skf dsfkhdsfkh skh fkfh fkshfdskjf ds. sdfsfsfsf fjskhf kjhfjksf ksdf kdsfh skf dsfkhdsfkh skh fkfh fkshfdskjf ds. sdfsfsfsf fjskhf kjhfjksf ksdf kdsfh skf dsfkhdsfkh skh fkfh fkshfdskjf ds. </p>
 
-							</tr>
-						</thead>
-		
-						<tbody>
-							<tr>
-								<td>1</td>
-								<td>Art Ramadani</td>
-								<td>01010101010101</td>
-								<td>abc@gmail.com</td>
-								<td>Chittagong</td>
-								<td>300</td>
-							</tr>
-		
-							<tr>
-								<td>2</td>
-								<td>Ylli Pylla</td>
-								<td>01010101010101</td>
-								<td>abc@gmail.com</td>
-								<td>Chittagong</td>
-								<td>200</td>
-							</tr>
-		
-							<tr>
-								<td>3</td>
-								<td>Arlind Nushi</td>
-								<td>01010101010101</td>
-								<td>abc@gmail.com</td>
-								<td>Chittagong</td>
-								<td>100</td>
-							</tr>
-		
-						</tbody>
-					</table>
-				</div>
-		
-			</div>
-		
-		</div>
-		
-		<br />
+	</div>
+</div>
 
-		<div class="row">
-			<div class="col-sm-12">
 
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<div class="panel-title">Top customers Profile</div>
-
-						<div class="panel-options">
-							<a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
-							<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
-							<a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
-							<a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
-						</div>
-					</div>
-
-					<table class="table table-bordered table-responsive">
-						<thead>
-						<tr>
-							<th>SL No.</th>
-							<th>Full Name</th>
-							<th>Phone Number</th>
-							<th>Email Address</th>
-							<th>City</th>
-							<th>Total Sale</th>
-
-						</tr>
-						</thead>
-
-						<tbody>
-						<tr>
-							<td>1</td>
-							<td>Art Ramadani</td>
-							<td>01010101010101</td>
-							<td>abc@gmail.com</td>
-							<td>Chittagong</td>
-							<td>300</td>
-						</tr>
-
-						<tr>
-							<td>2</td>
-							<td>Ylli Pylla</td>
-							<td>01010101010101</td>
-							<td>abc@gmail.com</td>
-							<td>Chittagong</td>
-							<td>200</td>
-						</tr>
-
-						<tr>
-							<td>3</td>
-							<td>Arlind Nushi</td>
-							<td>01010101010101</td>
-							<td>abc@gmail.com</td>
-							<td>Chittagong</td>
-							<td>100</td>
-						</tr>
-
-						</tbody>
-					</table>
-				</div>
-
-			</div>
-
-		</div>
 		<!-- Footer -->
 		<?php include 'footer.php'; ?>
 </div>

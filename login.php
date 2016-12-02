@@ -46,7 +46,7 @@ use App\Message\Message;
 
 <!-- This is needed when you send requests via Ajax-->
 <script type="text/javascript">
-var baseurl = 'views/User/Authentication/login.php';
+var baseurl = '';
 </script>
 
 <div class="login-container">

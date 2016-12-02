@@ -4,6 +4,9 @@ use App\Employee\Employee;
 use App\Message\Message;
 use App\Utility\Utility;
 
+if(!isset( $_SESSION)) session_start();
+echo Message::message();
+
 //var_dump($_GET);die();
 
 $obj = new Employee();
@@ -261,7 +264,7 @@ $singleData = $obj->view("obj");
 									<a href="#" class="user-status is-online tooltip-primary" data-toggle="tooltip" data-placement="top" data-original-title="Online"></a>
 									<!-- User statuses available classes "is-online", "is-offline", "is-idle", "is-busy" -->						</strong>
 								<span><a href="#"><i class="entypo-phone"></i><?php echo $singleData->phone_number;?></a></span>
-								<span><a href="#"><i class="entypo-mail"></i><?php echo $singleData->email;?></a></span>
+								<span><a href="<?php echo "mailto:".$singleData->email;?>"><i class="entypo-mail"></i><?php echo $singleData->email;?></a></span>
 								<span><a href="#"><i class="entypo-briefcase"></i><?php echo $singleData->role;?></a></span>
 							</div>
 						</li>
@@ -792,3 +795,6 @@ $singleData = $obj->view("obj");
 
 </body>
 </html>
+<script>
+	$('#message').show().delay(1200).fadeOut();
+</script>

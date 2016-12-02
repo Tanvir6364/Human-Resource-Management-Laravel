@@ -8,6 +8,9 @@ use App\User\Auth;
 use App\Message\Message;
 use App\Utility\Utility;
 
+if(!isset( $_SESSION)) session_start();
+echo Message::message();
+
 $objSalary = new SalarySheet();
 $objSalary->setData($_SESSION);
 $allData = $objSalary->index();
@@ -286,6 +289,7 @@ if(!$status) {
 
                         <div class="panel-body">
 
+
                             <table class="table table-bordered datatable" id="table-1">
                                 <thead>
                                 <tr>
@@ -300,10 +304,6 @@ if(!$status) {
                                     <td><?php echo $data['title']?></td>
                                     <td><?php echo $data['amount']?></td>
                                     <td>
-                                        <a href="edit.php?id=<?php echo $data['id']?>" class="btn btn-success btn-md btn-icon icon-left" role="button">
-                                            <i class="entypo-user"></i>
-                                            Update
-                                        </a>
 
                                         <a href="delete.php?id=<?php echo $data['id']?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
                                             <i class="entypo-cancel"></i>
@@ -427,3 +427,7 @@ if(!$status) {
 
 </body>
 </html>
+
+<script>
+    $('#message').show().delay(1200).fadeOut();
+</script>

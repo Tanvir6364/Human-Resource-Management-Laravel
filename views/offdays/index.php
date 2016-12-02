@@ -8,6 +8,9 @@ use App\User\Auth;
 use App\Message\Message;
 use App\Utility\Utility;
 
+if(!isset( $_SESSION)) session_start();
+echo Message::message();
+
 $obj = new OffDays();
 $obj->setData($_SESSION);
 $allData1 = $obj->index("obj");
@@ -431,3 +434,6 @@ if(!$status) {
 
 </body>
 </html>
+<script>
+    $('#message').show().delay(1200).fadeOut();
+</script>

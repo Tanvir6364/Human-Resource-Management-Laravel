@@ -14,6 +14,9 @@ $allData1 = $objEmployee->department();
 $recordSet = $objEmployee->index("OBJ");
 $recordSet1 = $objEmployee->department("OBJ");
 
+if(!isset( $_SESSION)) session_start();
+echo Message::message();
+
 
 
 
@@ -421,3 +424,6 @@ if(!$status) {
 
 </body>
 </html>
+<script>
+    $('#message').show().delay(1200).fadeOut();
+</script>
