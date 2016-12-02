@@ -6,6 +6,7 @@ use App\Employee\Employee;
 use App\User\Auth;
 use App\Message\Message;
 use App\Utility\Utility;
+use App\Admin\Admin;
 $obj = new Employee();
 $obj->setData($_SESSION);
 $someData = $obj->index("obj");
@@ -17,7 +18,10 @@ $someData = $obj->index("obj");
 
 $auth= new Auth();
 $status = $auth->prepare($_SESSION)->logged_in();
-var_dump($_SESSION);die();
+$objLogged = new Admin();
+$objLogged->setData($_SESSION);
+$loggedData = $objLogged->view();
+
 if(!$status) {
     Utility::redirect('../../login.php');
     return;
@@ -231,8 +235,8 @@ if(!$status) {
                     <li class="profile-info dropdown"><!-- add class "pull-right" if you want to place this from right -->
 
                         <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="../../assets/images/thumb-1@2x.png" alt="" class="img-circle" width="44" />
-                            John Henderson
+                            <img src="../../resource/images/<?php echo $loggedData->profile_picture?>" alt="" class="img-circle" width="44" />
+                            <a href="profile.php?id=<?php echo $loggedData->id?>"><?php echo $loggedData->first_name." ".$loggedData->last_name;?></a>
                         </a>
 
 

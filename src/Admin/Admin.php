@@ -6,8 +6,12 @@
  * Time: 12:51 PM
  */
 
-namespace App;
+namespace App\Admin;
 use App\db\Database as DB;
+use App\Message\Message;
+use App\Utility\Utility;
+use PDO;
+use PDOException;
 
 
 class Admin extends  DB
@@ -75,13 +79,12 @@ class Admin extends  DB
 
     }
 
-    public function view($fetchMode="ASSOC"){
+    public function view(){
         // $fetchMode = strtoupper($fetchMode);
-        $STH = $this->connection->query('SELECT * from admin where id='.$this->id);
+        $STH = $this->connection->prepare('SELECT * FROM `final_project`.`users` WHERE `users`.`email`=:email');
 
-        $fetchMode = strtoupper($fetchMode);
-        if(substr_count($fetchMode, "OBJ")>0)   $STH->setFetchMode(PDO::FETCH_OBJ);
-        else               $STH->setFetchMode(PDO::FETCH_ASSOC);
+        $STH->execute(array(':email'=>$this->email));
+        $STH->setFetchMode(PDO::FETCH_OBJ);
 
         $arrOneData  = $STH->fetch();
         return $arrOneData;
