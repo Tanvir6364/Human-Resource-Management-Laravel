@@ -174,7 +174,7 @@ class Employee extends DB
 
         if (array_key_exists('password', $data)) {
 
-            $this->password = $data['password'];
+            $this->password = md5($data['password']);
 
         }
 
@@ -202,7 +202,7 @@ class Employee extends DB
             Message::message("<h1>5353435<\h1>");
         }
 
-        //Utility::redirect('../../../views/employee/add.php');
+        Utility::redirect('../../views/employee/index.php');
 
 
         $arr = array($this->employee_id);

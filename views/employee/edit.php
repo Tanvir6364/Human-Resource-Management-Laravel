@@ -226,40 +226,7 @@ $recordSet2 = $objEmployee->department("OBJ");
                             John Henderson
                         </a>
 
-                        <ul class="dropdown-menu">
 
-                            <!-- Reverse Caret -->
-                            <li class="caret"></li>
-
-                            <!-- Profile sub-links -->
-                            <li>
-                                <a href="extra-timeline.html">
-                                    <i class="entypo-user"></i>
-                                    Edit Profile
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="mailbox.html">
-                                    <i class="entypo-mail"></i>
-                                    Inbox
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="extra-calendar.html">
-                                    <i class="entypo-calendar"></i>
-                                    Calendar
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    <i class="entypo-clipboard"></i>
-                                    Tasks
-                                </a>
-                            </li>
-                        </ul>
                     </li>
 
                 </ul>
@@ -282,57 +249,15 @@ $recordSet2 = $objEmployee->department("OBJ");
                             <img src="../../assets/images/flags/flag-uk.png" width="16" height="16" />
                         </a>
 
-                        <ul class="dropdown-menu pull-right">
-                            <li>
-                                <a href="#">
-                                    <img src="../../assets/images/flags/flag-de.png" width="16" height="16" />
-                                    <span>Deutsch</span>
-                                </a>
-                            </li>
-                            <li class="active">
-                                <a href="#">
-                                    <img src="../../assets/images/flags/flag-uk.png" width="16" height="16" />
-                                    <span>English</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="../../assets/images/flags/flag-fr.png" width="16" height="16" />
-                                    <span>François</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="../../assets/images/flags/flag-al.png" width="16" height="16" />
-                                    <span>Shqip</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="../../assets/images/flags/flag-es.png" width="16" height="16" />
-                                    <span>Español</span>
-                                </a>
-                            </li>
-                        </ul>
+
 
                     </li>
 
-                    <li class="sep"></li>
-
-
-                    <li>
-                        <a href="#" data-toggle="chat" data-collapse-sidebar="1">
-                            <i class="entypo-chat"></i>
-                            Chat
-
-                            <span class="badge badge-success chat-notifications-badge is-hidden">0</span>
-                        </a>
-                    </li>
 
                     <li class="sep"></li>
 
                     <li>
-                        <a href="extra-login.html">
+                        <a href="../User/Authentication/logout.php">
                             Log Out <i class="entypo-logout right"></i>
                         </a>
                     </li>

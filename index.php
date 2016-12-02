@@ -1,11 +1,14 @@
 <?php
+if(!isset($_SESSION) )session_start();
 
 include('vendor/autoload.php');
 use App\Employee\Employee;
+use App\User\Auth;
 use App\Message\Message;
 use App\Utility\Utility;
 
 $obj = new Employee();
+$obj->setData($_SESSION);
 $countEmployee=$obj->countEmployee();
 $countDept=$obj->countDept();
 $countSalaryGrade=$obj->countSlaryGrade();
@@ -13,7 +16,12 @@ $countOffDays=$obj->countOffDays();
 
 //echo($count);die();
 
-
+$auth= new Auth();
+$status = $auth->prepare($_SESSION)->logged_in();
+if(!$status) {
+	Utility::redirect('login.php');
+	return;
+}
 
 ?>
 
@@ -437,7 +445,7 @@ $countOffDays=$obj->countOffDays();
 		</div>
 		<!-- Footer -->
 		<?php include 'footer.php'; ?>
-	</div>
+</div>
 
 		
 

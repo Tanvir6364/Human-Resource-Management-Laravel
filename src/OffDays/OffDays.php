@@ -55,7 +55,7 @@ class OffDays extends DB{
     }//end of store
 
 
-    public function index(){
+    public function index($fetchMode="ASSOC"){
 
         $STH = $this->connection->query('SELECT * from  off_days');
         $STH->setFetchMode(PDO::FETCH_OBJ);

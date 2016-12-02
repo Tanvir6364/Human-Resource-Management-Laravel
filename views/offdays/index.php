@@ -1,13 +1,24 @@
 <?php
+if(!isset($_SESSION) )session_start();
+
 require_once("../../vendor/autoload.php");
-session_start();
+
 use App\OffDays\OffDays;
+use App\User\Auth;
 use App\Message\Message;
 use App\Utility\Utility;
 
-$objEmployee = new OffDays();
-$allData1 = $objEmployee->index("obj");
+$obj = new OffDays();
+$obj->setData($_SESSION);
+$allData1 = $obj->index("obj");
 
+
+$auth= new Auth();
+$status = $auth->prepare($_SESSION)->logged_in();
+if(!$status) {
+    Utility::redirect('../../login.php');
+    return;
+}
 
 ?>
 
@@ -218,40 +229,7 @@ $allData1 = $objEmployee->index("obj");
                             John Henderson
                         </a>
 
-                        <ul class="dropdown-menu">
 
-                            <!-- Reverse Caret -->
-                            <li class="caret"></li>
-
-                            <!-- Profile sub-links -->
-                            <li>
-                                <a href="extra-timeline.html">
-                                    <i class="entypo-user"></i>
-                                    Edit Profile
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="mailbox.html">
-                                    <i class="entypo-mail"></i>
-                                    Inbox
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="extra-calendar.html">
-                                    <i class="entypo-calendar"></i>
-                                    Calendar
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    <i class="entypo-clipboard"></i>
-                                    Tasks
-                                </a>
-                            </li>
-                        </ul>
                     </li>
 
                 </ul>
@@ -266,65 +244,11 @@ $allData1 = $objEmployee->index("obj");
 
                 <ul class="list-inline links-list pull-right">
 
-                    <!-- Language Selector -->
-                    <li class="dropdown language-selector">
-
-                        Language: &nbsp;
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
-                            <img src="../../assets/images/flags/flag-uk.png" width="16" height="16" />
-                        </a>
-
-                        <ul class="dropdown-menu pull-right">
-                            <li>
-                                <a href="#">
-                                    <img src="../../assets/images/flags/flag-de.png" width="16" height="16" />
-                                    <span>Deutsch</span>
-                                </a>
-                            </li>
-                            <li class="active">
-                                <a href="#">
-                                    <img src="../../assets/images/flags/flag-uk.png" width="16" height="16" />
-                                    <span>English</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="../../assets/images/flags/flag-fr.png" width="16" height="16" />
-                                    <span>François</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="../../assets/images/flags/flag-al.png" width="16" height="16" />
-                                    <span>Shqip</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="../../assets/images/flags/flag-es.png" width="16" height="16" />
-                                    <span>Español</span>
-                                </a>
-                            </li>
-                        </ul>
-
-                    </li>
-
-                    <li class="sep"></li>
-
-
-                    <li>
-                        <a href="#" data-toggle="chat" data-collapse-sidebar="1">
-                            <i class="entypo-chat"></i>
-                            Chat
-
-                            <span class="badge badge-success chat-notifications-badge is-hidden">0</span>
-                        </a>
-                    </li>
 
                     <li class="sep"></li>
 
                     <li>
-                        <a href="extra-login.html">
+                        <a href="../User/Authentication/logout.php">
                             Log Out <i class="entypo-logout right"></i>
                         </a>
                     </li>
@@ -452,7 +376,8 @@ $allData1 = $objEmployee->index("obj");
                                     <label for="field-1" class="col-sm-4 control-label">Details</label>
 
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="field-1" name="details" placeholder="Enter Department Name">
+                                        <textarea name="details" id="details" cols="34" rows="5"></textarea>
+
                                     </div>
                                 </div>
 

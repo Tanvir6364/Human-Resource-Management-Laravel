@@ -2,10 +2,12 @@
 if(!isset($_SESSION) )session_start();
 
 include('../../vendor/autoload.php');
+
 use App\Employee\Employee;
 use App\User\Auth;
 use App\Message\Message;
 use App\Utility\Utility;
+
 $obj = new Employee();
 $obj->setData($_SESSION);
 $someData = $obj->index("obj");
@@ -17,7 +19,6 @@ $someData = $obj->index("obj");
 
 $auth= new Auth();
 $status = $auth->prepare($_SESSION)->logged_in();
-var_dump($_SESSION);die();
 if(!$status) {
     Utility::redirect('../../login.php');
     return;
@@ -448,9 +449,11 @@ if(!$status) {
             </tr>
         </table>
 
-
     </div>
+
+
 </div>
+
 
 
 

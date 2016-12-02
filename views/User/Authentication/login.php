@@ -17,7 +17,7 @@ if($status){
                             <strong>Welcome!</strong> You have successfully logged in.
                 </div>");
     
-    return Utility::redirect('../../employee/index.php');
+    return Utility::redirect('../../../index.php');
 
 }else{
     Message::message("
@@ -25,7 +25,7 @@ if($status){
                             <strong>Wrong information!</strong> Please try again.
                 </div>");
 
-    return Utility::redirect('../Profile/signup.php');
+    return Utility::redirect('../../../login.php');
 
 }
 
