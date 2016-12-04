@@ -12,6 +12,7 @@ class Department extends DB{
 
     public $id;
     public $dept;
+    public $designation;
 
 
     public function __construct(){
@@ -28,13 +29,16 @@ class Department extends DB{
 
             $this->dept = $data['dept'];
         }
+        if(array_key_exists('designation',$data)){
+            $this->designation = $data['designation'];
+        }
     }
 
     //for adding item from create.php
     public function store(){
-        $arr = array($this->dept);
+        $arr = array($this->dept,$this->designation);
 
-        $sql="INSERT INTO `department` (`dept`) VALUES (?);";
+        $sql="INSERT INTO `department` (`dept`,`designation`) VALUES (?,?);";
         $STH = $this->connection->prepare($sql);
         $messageme = $STH->execute($arr);
 

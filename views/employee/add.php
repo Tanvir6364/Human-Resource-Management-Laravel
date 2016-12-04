@@ -6,7 +6,9 @@ use App\Employee\Employee;
 use App\User\Auth;
 use App\Message\Message;
 use App\Utility\Utility;
+use App\Department\Department;
 
+$objDept = new Department();
 $objEmployee = new Employee();
 $objEmployee->setData($_SESSION);
 $allData = $objEmployee->index();

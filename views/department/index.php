@@ -302,6 +302,7 @@ if(!$status) {
                                 <tr>
                                     <th class="col-lg-1">ID</th>
                                     <th class="col-lg-3">Department</th>
+                                    <th class="col-lg-3">Designation</th>
                                     <th class="col-lg-3">Action</th>
                                 </tr>
                                 </thead>
@@ -310,6 +311,7 @@ if(!$status) {
                                 <tr class="odd gradeX">
                                     <td><?php echo $data->id?></td>
                                     <td><?php echo $data->dept?></td>
+                                    <td><?php echo $data->designation?></td>
                                     <td>
 
                                         <a href="delete.php?id=<?php echo $data->id?>" class="btn btn-danger btn-md btn-icon icon-left" role="button">
@@ -326,6 +328,7 @@ if(!$status) {
                                 <tr>
                                     <th class="col-lg-1">Grade</th>
                                     <th class="col-lg-3">Amount</th>
+                                    <th class="col-lg-3">Designation</th>
                                     <th class="col-lg-3">Action</th>
                                 </tfoot>
                             </table>
@@ -374,6 +377,13 @@ if(!$status) {
                                     </div>
                                 </div>
 
+                                <div class="form-group col-sm-12">
+                                    <label for="field-1" class="col-sm-4 control-label">Designation</label>
+
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="field-1" name="designation" placeholder="Enter Designation">
+                                    </div>
+                                </div>
                             </div>
 
 

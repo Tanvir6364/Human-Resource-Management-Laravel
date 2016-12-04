@@ -433,9 +433,9 @@ $recordSet2 = $objEmployee->department("OBJ");
                                 <label class="control-label col-sm-4" for="country">Select Country:</label>
 
                                 <div class="col-sm-8">
-                                    <select id="country" name ="country" value=""><?php echo $singleData->country;?></select>
+                                    <select id="country" name ="country" value="<?php echo $singleData->country;?>"></select>
 
-                                    <select name ="city" id ="state"><?php echo $singleData->city;?></select>
+                                    <select name ="city" id ="state" value="<?php echo $singleData->city;?>"></select>
                                     <script language="javascript">
                                         populateCountries("country", "state");
                                     </script>
@@ -500,11 +500,9 @@ $recordSet2 = $objEmployee->department("OBJ");
                                 <label for="field-1" class="col-sm-4 control-label">Role</label>
                                 <div class="col-sm-8">
                                     <select name="role" class="selectboxit" data-first-option="false">
-                                        <option>Select one</option>
-                                        <option value="CEO" <?php if($singleData->role=="CEO")echo "selected";?>>CEO</option>
-                                        <option value="Manager" <?php if($singleData->role=="Manager")echo "selected";?>>Manager</option>
-                                        <option value="Ass. Manager" <?php if($singleData->role=="Ass. Manager")echo "selected";?>>Ass. Manager</option>
-                                        <option value="Executive" <?php if($singleData->role=="Executive")echo "selected";?>>Executive</option>
+                                    <?php foreach($allData2 as $oneData){?>
+                                        <option value="<?php echo $oneData['role']?>"></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>
